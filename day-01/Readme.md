@@ -46,4 +46,4 @@ for (let person of arr) {
   document.getElementById("root").append(element);
 }
 ```
-[Zafer CÖMERT](http://www.zafercomert.com)
+[Zafer CÖMERT](http://www.zafercomert.com) 
