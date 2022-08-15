@@ -1,18 +1,24 @@
-# İçerik 
+# İçerik
 
-* HTML
-* CSS
-* JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ## npm
-> npm init 
-Node Package Management için package.json dosyası oluşturur.
+
+> npm init
+> Node Package Management için package.json dosyası oluşturur.
 
 > script
-* start (npm start)
-* server (npm run server)
+
+| script | açıklama                                                           |
+| ------ | ------------------------------------------------------------------ |
+| **start**  | npm start komutu ile birlikte çalıştırılacak script belirler.      |
+| **server** | npm run server komutu ile birlikte çalıştırılacak script belirler. |
+
 
 ## git
+
 > git init
 
 > git config --global user.email "email"
@@ -31,3 +37,13 @@ Node Package Management için package.json dosyası oluşturur.
 
 > git push origin -d "branchname"
 
+## JavaScript
+### Array üzerinde dolaşma (traverse)
+```js
+for (let person of arr) {
+  const element = document.createElement("div");
+  element.innerHTML = `${person.id} ${person.name} ${person.age}`;
+  document.getElementById("root").append(element);
+}
+```
+[Zafer CÖMERT](http://www.zafercomert.com)
