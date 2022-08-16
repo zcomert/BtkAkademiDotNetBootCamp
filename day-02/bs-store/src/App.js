@@ -3,7 +3,7 @@ import data from "./data";
 
 function App() {
   const [books, setBooks] = useState(data);
-  
+
   // Arrow (ok)
   const clearAll = () => {
     setBooks([]);
@@ -11,13 +11,13 @@ function App() {
   };
 
   const addBook = (book) => {
-    //setBooks([...books, book])
-    console.log(books)
-  } 
+    setBooks([...books, book])
+    console.log(books);
+  };
 
   const removeBook = (id) => {
-    //setBooks(books.filter(book => book!==id))
-  }
+    setBooks(books.filter((book) => book.id !== id));
+  };
   return (
     <>
       <div>Merhaba React.</div>
@@ -28,10 +28,12 @@ function App() {
         </div>
       ))}
       <button onClick={() => clearAll()}>Clear All</button>
-      <button onClick={() => addBook({})}>Add</button>
-      <div>
-        {books.length}
-      </div>
+      <button
+        onClick={() => addBook({ id: 4, title: "Olasılıksız", price: 110 })}
+      >
+        Add
+      </button>
+      <div>{books.length}</div>
     </>
   );
 }
