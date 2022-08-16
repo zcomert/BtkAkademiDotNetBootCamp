@@ -1,7 +1,8 @@
 import { useState } from "react";
-import data from "./data";
+import data,{ tobeAddBook } from "./data";
 
 function App() {
+  console.log(tobeAddBook)
   const [books, setBooks] = useState(data);
 
   // Arrow (ok)
@@ -33,6 +34,7 @@ function App() {
       >
         Add
       </button>
+      <button>Add All</button>
       <div>{books.length}</div>
     </>
   );
