@@ -2,35 +2,35 @@ import { useState } from "react";
 import data from "./data";
 
 function App() {
-  const [names, setNames] = useState(data);
+  const [books, setBooks] = useState(data);
   
   // Arrow (ok)
-  const sayHello = () => {
-    setNames([]);
-    console.log(names);
+  const clearAll = () => {
+    setBooks([]);
+    console.log(books);
   };
 
-  const addNumber = (num) => {
-    setNames([...names, num])
-    console.log(names)
+  const addBook = (book) => {
+    //setBooks([...books, book])
+    console.log(books)
   } 
 
-  const showName = (name) => {
-    setNames(names.filter(num => num!==name))
+  const removeBook = (id) => {
+    //setBooks(books.filter(book => book!==id))
   }
   return (
     <>
       <div>Merhaba React.</div>
-      {names.map((num, index) => (
+      {books.map((book, index) => (
         <div key={index}>
-          {num}
-          <button onClick={() => showName(num)}>Remove</button>
+          {book.title} {book.price}
+          <button onClick={() => removeBook(book.id)}>Remove</button>
         </div>
       ))}
-      <button onClick={() => sayHello()}>Clear All</button>
-      <button onClick={() => addNumber("Betül")}>Add</button>
+      <button onClick={() => clearAll()}>Clear All</button>
+      <button onClick={() => addBook({})}>Add</button>
       <div>
-        {names.length}
+        {books.length}
       </div>
     </>
   );
