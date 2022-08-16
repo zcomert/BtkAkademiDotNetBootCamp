@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [numbers, setNumbers] = useState([1,2,3,4,5]);
+  
+  // Arrow (ok)
+  const sayHello = () => {
+    setNumbers([]);
+    console.log(numbers);
+  };
+
+  const showNumber = (number) => {
+    setNumbers(numbers.filter(num => num!==number))
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>Merhaba React.</div>
+      {numbers.map((num, index) => (
+        <div key={index}>
+          {num}
+          <button onClick={() => showNumber(num)}>button</button>
+        </div>
+      ))}
+      <button onClick={() => sayHello()}>Clear All</button>
+      <div>
+        {numbers.length}
+      </div>
+    </>
   );
 }
 
