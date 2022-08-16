@@ -1,35 +1,36 @@
 import { useState } from "react";
+import data from "./data";
 
 function App() {
-  const [numbers, setNumbers] = useState([1,2,3,4,5]);
+  const [names, setNames] = useState(data);
   
   // Arrow (ok)
   const sayHello = () => {
-    setNumbers([]);
-    console.log(numbers);
+    setNames([]);
+    console.log(names);
   };
 
   const addNumber = (num) => {
-    setNumbers([...numbers, num])
-    console.log(numbers)
+    setNames([...names, num])
+    console.log(names)
   } 
 
-  const showNumber = (number) => {
-    setNumbers(numbers.filter(num => num!==number))
+  const showName = (name) => {
+    setNames(names.filter(num => num!==name))
   }
   return (
     <>
       <div>Merhaba React.</div>
-      {numbers.map((num, index) => (
+      {names.map((num, index) => (
         <div key={index}>
           {num}
-          <button onClick={() => showNumber(num)}>button</button>
+          <button onClick={() => showName(num)}>Remove</button>
         </div>
       ))}
       <button onClick={() => sayHello()}>Clear All</button>
-      <button onClick={() => addNumber(55)}>Add</button>
+      <button onClick={() => addNumber("Betül")}>Add</button>
       <div>
-        {numbers.length}
+        {names.length}
       </div>
     </>
   );
