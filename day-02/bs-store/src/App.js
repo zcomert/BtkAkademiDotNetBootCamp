@@ -2,7 +2,7 @@ import { useState } from "react";
 import data,{ tobeAddBook } from "./data";
 
 function App() {
-  console.log(tobeAddBook)
+ 
   const [books, setBooks] = useState(data);
 
   // Arrow (ok)
@@ -19,6 +19,10 @@ function App() {
   const removeBook = (id) => {
     setBooks(books.filter((book) => book.id !== id));
   };
+
+  const addAllBooks = () =>{
+    setBooks([...books, ...tobeAddBook])
+  }
   return (
     <>
       <div>Merhaba React.</div>
@@ -34,7 +38,7 @@ function App() {
       >
         Add
       </button>
-      <button>Add All</button>
+      <button onClick={() => addAllBooks()} >Add All</button>
       <div>{books.length}</div>
     </>
   );
