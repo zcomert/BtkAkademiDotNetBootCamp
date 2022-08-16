@@ -8,7 +8,6 @@ for (const item of arr) {
         newArr.push(item);
     }
 }
-
 const newFilterArr = arr.filter(num => num!==selectedItem);
 console.log(arr);
 console.log(newArr);
