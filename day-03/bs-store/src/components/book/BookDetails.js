@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import data from "../../data";
 
 export default function BookDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const initial = {
     id: 0,
-    title: "xx",
+    title: "",
     price: 0,
-    summary: "..."
-  }
+    summary: "",
+  };
   const [book, setBook] = useState(initial);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function BookDetails() {
       <h5>
         <b>Price</b> {book.price}
       </h5>
+      <button onClick={() => navigate("/books/list")} >Go to Book List </button>
     </div>
   );
 }
