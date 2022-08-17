@@ -6,6 +6,8 @@ import Search from "./components/search/Search";
 import Login from "./components/login/Login";
 import Contact from "./components/contact/Contact";
 import { Routes, Route } from "react-router-dom";
+import SimpleAppbar from "./components/simpleAppbar/SimpleAppbar";
+import Home from "./pages/home/Home";
 
 function App() {
   const [books, setBooks] = useState(data);
@@ -30,18 +32,18 @@ function App() {
   };
   return (
     <>
+      <SimpleAppbar />
       <Routes>
         <Route
           path='/books/list'
           element={
-            <BookList books={books} 
-            addBook={addBook} 
-            removeBook={removeBook} />
+            <BookList books={books} addBook={addBook} removeBook={removeBook} />
           }
         />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path='/auth/login' element={<Login />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/' element={<Home />} />
       </Routes>
     </>
   );
