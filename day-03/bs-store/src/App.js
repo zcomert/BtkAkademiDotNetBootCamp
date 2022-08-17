@@ -45,6 +45,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/' element={<Home />} />
       </Routes>
+      <p>All rights </p>
     </>
   );
 }
