@@ -1,6 +1,7 @@
 # İçerik
 
 - React
+- JSX
 - State
 - useState
 - JavaScript
