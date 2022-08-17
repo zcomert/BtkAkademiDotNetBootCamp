@@ -40,6 +40,8 @@ function App() {
           }
         />
         <Route path="/auth/login" element={<Login />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );
