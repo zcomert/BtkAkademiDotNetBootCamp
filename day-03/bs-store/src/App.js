@@ -33,7 +33,10 @@ function App() {
     <>
       <div>Merhaba React.</div>
       {/* prop (books) tanımı yapıldı */}
-      <BookList books={books}  />
+      <BookList 
+      books={books} 
+      addBook={addBook}
+      removeBook={removeBook}  />
       
       <Counter />
       <Search/>
