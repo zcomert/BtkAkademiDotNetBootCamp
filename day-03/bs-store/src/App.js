@@ -1,14 +1,13 @@
 import { useState } from "react";
-import data,{ tobeAddBook } from "./data";
+import data, { tobeAddBook } from "./data";
 import Counter from "./Counter";
 import BookList from "./components/bookList/BookList";
 import Search from "./components/search/Search";
-import Login from "./components/login/Login"
+import Login from "./components/login/Login";
 import Contact from "./components/contact/Contact";
-
+import { Routes, Route } from "react-router-dom";
 
 function App() {
- 
   const [books, setBooks] = useState(data);
 
   // Arrow (ok)
@@ -18,7 +17,7 @@ function App() {
   };
 
   const addBook = (book) => {
-    setBooks([...books, book])
+    setBooks([...books, book]);
     console.log(books);
   };
 
@@ -26,22 +25,22 @@ function App() {
     setBooks(books.filter((book) => book.id !== id));
   };
 
-  const addAllBooks = () =>{
-    setBooks([...books, ...tobeAddBook])
-  }
+  const addAllBooks = () => {
+    setBooks([...books, ...tobeAddBook]);
+  };
   return (
     <>
-      <div>Merhaba React.</div>
-      {/* prop (books) tanımı yapıldı */}
-      <BookList 
-      books={books} 
-      addBook={addBook}
-      removeBook={removeBook}  />
-      
-      <Counter />
-      <Search/>
-      <Login />
-      <Contact />
+      <Routes>
+        <Route
+          path='/books/list'
+          element={
+            <BookList books={books} 
+            addBook={addBook} 
+            removeBook={removeBook} />
+          }
+        />
+        <Route path="/auth/login" element={<Login />} />
+      </Routes>
     </>
   );
 }

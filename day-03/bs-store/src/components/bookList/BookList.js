@@ -5,9 +5,10 @@ import BookAdd from "../book/BookAdd";
 export default function BookList({ books, removeBook, addBook }) {
   return (
     <>
-      <div>BookList {books.length}</div>
+      <h3>BookList</h3>
+      <div> {books.length}</div>
       {books.map((book) => (
-        <Book book={book} removeBook={removeBook} />
+        <Book key={book.id} book={book} removeBook={removeBook} />
       ))}
       <div>
         <BookAdd addBook={addBook} />
