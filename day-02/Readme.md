@@ -12,8 +12,9 @@
       - default export
       - name export
     - import
-  - Rest (...) operator - spread syntax
-    > script
+  - Rest (...) operator 
+  - spread syntax
+
 
 | Hook         | Açıklama                                                                        |
 | ------------ | ------------------------------------------------------------------------------- |
