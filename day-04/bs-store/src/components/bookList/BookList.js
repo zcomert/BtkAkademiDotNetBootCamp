@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function BookList({ books, removeBook, addBook }) {
   const navigate = useNavigate();
   const fabStyle = {
-    position: "absolute",
+    position: "fixed",
     bottom: 16,
     right: 16,
   };
