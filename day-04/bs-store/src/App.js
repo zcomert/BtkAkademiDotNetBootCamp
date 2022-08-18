@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import SimpleAppbar from "./components/simpleAppbar/SimpleAppbar";
 import Home from "./pages/home/Home";
 import BookDetails from "./components/book/BookDetails";
+import BookAdd from "./components/book/BookAdd";
 
 function App() {
   const [books, setBooks] = useState(data);
@@ -42,6 +43,7 @@ function App() {
           }
         />
         <Route path='/books/details/:id' element={<BookDetails />} />
+        <Route path='/books/add' element={<BookAdd />} />
         <Route path='/auth/login' element={<Login />} />
         <Route path='/search' element={<Search />} />
         <Route path='/contact' element={<Contact />} />

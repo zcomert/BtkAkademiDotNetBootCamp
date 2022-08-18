@@ -3,8 +3,10 @@ import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import Book from "../book/Book";
 import BookAdd from "../book/BookAdd";
+import { useNavigate } from "react-router-dom";
 
 export default function BookList({ books, removeBook, addBook }) {
+  const navigate = useNavigate();
   const fabStyle = {
     position: "absolute",
     bottom: 16,
@@ -20,7 +22,12 @@ export default function BookList({ books, removeBook, addBook }) {
 
   return (
     <Container maxWidth='md'>
-      <Fab sx={fab.sx} color={fab.color} aria-label='add'>
+      <Fab
+        onClick={() => navigate("/books/add")}
+        sx={fab.sx}
+        color={fab.color}
+        aria-label='add'
+      >
         {fab.icon}
       </Fab>
 
