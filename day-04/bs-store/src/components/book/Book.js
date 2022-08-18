@@ -1,17 +1,31 @@
 import React from "react";
 import { Button } from "@mui/material";
-import {Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
+import {
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Book({ book, removeBook }) {
+  const navigate = useNavigate();
   return (
-    <div>
-      <Link to={`/books/details/${book.id}`}>{book.title}</Link>
-      <Button 
-      color="primary"
-      variant="contained"
-      onClick={() => 
-      removeBook(book.id)}>Remove
-      </Button>
-    </div>
+   
+      <ListItem
+        secondaryAction={
+          <IconButton 
+          onClick={() => removeBook(book.id)}
+          edge='end' aria-label='delete'>
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemText 
+        sx={{cursor:'pointer'}}
+        onClick={() => navigate(`/books/details/${book.id}`)} > {book.title} </ListItemText>
+      </ListItem>
   );
 }
