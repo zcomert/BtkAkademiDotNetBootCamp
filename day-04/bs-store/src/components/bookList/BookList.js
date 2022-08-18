@@ -1,11 +1,13 @@
 import { Container, Fab, Grid, List, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import React from "react";
+import React, { useContext } from "react";
 import Book from "../book/Book";
 import BookAdd from "../book/BookAdd";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../../context/ContextApplication";
 
-export default function BookList({ books, removeBook }) {
+export default function BookList() {
+  const {books} = useContext(AppContext);
   const navigate = useNavigate();
   const fabStyle = {
     position: "fixed",
@@ -21,7 +23,7 @@ export default function BookList({ books, removeBook }) {
   };
 
   return (
-    <Container maxWidth='md'>
+    <Container sx={{mt:3}} maxWidth='md'>
       <Fab
         onClick={() => navigate("/books/add")}
         sx={fab.sx}
@@ -32,12 +34,12 @@ export default function BookList({ books, removeBook }) {
       </Fab>
 
       <Typography align='center' variant='h5' gutterBottom>
-        Book List
+       
       </Typography>
 
       <Grid container spacing={2}>
         {books.map((book) => (
-          <Book key={book.id} book={book} removeBook={removeBook} />
+          <Book key={book.id} book={book}  />
         ))}
       </Grid>
 

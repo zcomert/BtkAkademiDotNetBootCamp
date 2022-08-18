@@ -13,23 +13,7 @@ import BookAdd from "./components/book/BookAdd";
 import AppContext from "./context/ContextApplication";
 
 function App() {
-  const {books, setBooks} = useContext(AppContext);
-
-  // Arrow (ok)
-  const clearAll = () => {
-    setBooks([]);
-    console.log(books);
-  };
-
-  
-
-  const removeBook = (id) => {
-    setBooks(books.filter((book) => book.id !== id));
-  };
-
-  const addAllBooks = () => {
-    setBooks([...books, ...tobeAddBook]);
-  };
+ 
   return (
     <>
       <SimpleAppbar />
@@ -37,7 +21,7 @@ function App() {
         <Route
           path='/books/list'
           element={
-            <BookList books={books}  removeBook={removeBook} />
+            <BookList   />
           }
         />
         <Route path='/books/details/:id' element={<BookDetails />} />
