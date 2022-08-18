@@ -1,4 +1,4 @@
-import { Container, Fab, List, Typography } from "@mui/material";
+import { Container, Fab, Grid, List, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import Book from "../book/Book";
@@ -35,11 +35,11 @@ export default function BookList({ books, removeBook, addBook }) {
         Book List
       </Typography>
 
-      <List>
+      <Grid container spacing={2}>
         {books.map((book) => (
           <Book key={book.id} book={book} removeBook={removeBook} />
         ))}
-      </List>
+      </Grid>
 
       <Typography align='center' variant='caption' display='block' gutterBottom>
         The numbe of books ({books.length}) has been listed.

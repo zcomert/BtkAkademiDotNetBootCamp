@@ -15,6 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Link, useNavigate } from "react-router-dom";
+import { Grid } from '@mui/material';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -34,6 +35,7 @@ export default function Book({ book, removeBook }) {
   };
 
   return (
+    <Grid item xs={6} md={4}>
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
@@ -52,14 +54,12 @@ export default function Book({ book, removeBook }) {
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image={`/books/${book.id}.jpg`}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+         {book.summary}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -108,5 +108,6 @@ export default function Book({ book, removeBook }) {
         </CardContent>
       </Collapse>
     </Card>
+    </Grid>
   );
 }
