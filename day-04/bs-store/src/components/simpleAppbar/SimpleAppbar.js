@@ -134,10 +134,13 @@ const SimpleAppbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button 
-              onClick = {() => handleCloseNavMenu(page.url)}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-              key={page}>{page.name}</Button>
+              <Button
+                onClick={() => handleCloseNavMenu(page.url)}
+                sx={{ my: 2, color: "white", display: "block" }}
+                key={page}
+              >
+                {page.name}
+              </Button>
             ))}
           </Box>
 
