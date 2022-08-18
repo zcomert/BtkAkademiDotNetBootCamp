@@ -107,8 +107,14 @@ const SimpleAppbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page.name}</Typography>
+                <MenuItem key={page.id} 
+                onClick={() => handleCloseNavMenu(page.url)}
+                >
+                  <Typography 
+                   
+                  textAlign='center'>
+                    {page.name}
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -137,7 +143,7 @@ const SimpleAppbar = () => {
               <Button
                 onClick={() => handleCloseNavMenu(page.url)}
                 sx={{ my: 2, color: "white", display: "block" }}
-                key={page}
+                key={page.id}
               >
                 {page.name}
               </Button>

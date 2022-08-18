@@ -14,7 +14,7 @@ export default function Book({ book, removeBook }) {
   const navigate = useNavigate();
   return (
    
-      <ListItem
+      <ListItem key={book.id}
         secondaryAction={
           <IconButton 
           onClick={() => removeBook(book.id)}
