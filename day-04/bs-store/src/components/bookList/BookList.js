@@ -5,7 +5,7 @@ import Book from "../book/Book";
 import BookAdd from "../book/BookAdd";
 import { useNavigate } from "react-router-dom";
 
-export default function BookList({ books, removeBook, addBook }) {
+export default function BookList({ books, removeBook }) {
   const navigate = useNavigate();
   const fabStyle = {
     position: "fixed",

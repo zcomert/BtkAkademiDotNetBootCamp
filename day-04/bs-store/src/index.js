@@ -4,21 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { AppContext } from "./context/ContextApplication";
-
+import { AppContextProvider } from "./context/ContextApplication";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const values = {
-  theme: 'light',
-  message: 'selam'
-}
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AppContext.Provider value={values}>
+      <AppContextProvider>
         <App />
-      </AppContext.Provider>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
