@@ -7,6 +7,8 @@ export default function Book({ book, removeBook }) {
     <div>
       <Link to={`/books/details/${book.id}`}>{book.title}</Link>
       <Button 
+      color="primary"
+      variant="contained"
       onClick={() => 
       removeBook(book.id)}>Remove
       </Button>
