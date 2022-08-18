@@ -15,6 +15,7 @@
     - element
   - useNavigate
   - useParams
+  - React Suite
 
 
 | Kavram                 | Açıklama |
@@ -28,5 +29,7 @@
 ## useEffect için Örnek Kullanım
 
 ```js
-
+useEffect(() => {
+    setBook(data.find((book) => book.id === parseInt(id)) || initial);
+  }, []);
 ```
