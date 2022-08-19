@@ -15,7 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Account", "Dashboard"];
 const pages = [
   {
     id: 1,
@@ -43,8 +43,12 @@ const SimpleAppbar = () => {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const {isLogin} = React.useContext(AppContext);
+  const {isLogin, setIsLogin} = React.useContext(AppContext);
   
+  const handleLogout = () => {
+    handleCloseUserMenu();
+    setIsLogin(false);
+  }
 
 
   const handleOpenNavMenu = (event) => {
@@ -187,6 +191,11 @@ const SimpleAppbar = () => {
                   <Typography textAlign='center'>{setting}</Typography>
                 </MenuItem>
               ))}
+              <MenuItem key={101} onClick={() => {
+                handleLogout()
+              }}>
+                Logout
+              </MenuItem>
             </Menu>
           </Box> 
           }
