@@ -44,7 +44,7 @@ export default function BookList() {
       </Grid>
 
       <Typography align='center' variant='caption' display='block' gutterBottom>
-        The numbe of books ({books.length}) has been listed.
+        The number of books ({books.length}) has been listed.
       </Typography>
     </Container>
   );

@@ -31,7 +31,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/' element={<Home />} />
       </Routes>
-      <p>All rights </p>
+      <p>All rights reserved &copy; 2022 </p>
     </>
   );
 }
