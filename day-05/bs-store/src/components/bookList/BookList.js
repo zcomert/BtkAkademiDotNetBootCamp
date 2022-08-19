@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication";
 
 export default function BookList() {
-  const {books} = useContext(AppContext);
+  const { books } = useContext(AppContext);
   const navigate = useNavigate();
   const fabStyle = {
     position: "fixed",
@@ -23,7 +23,7 @@ export default function BookList() {
   };
 
   return (
-    <Container sx={{mt:3}} maxWidth='md'>
+    <Container sx={{ mt: 3 }} maxWidth='md'>
       <Fab
         onClick={() => navigate("/books/add")}
         sx={fab.sx}
@@ -33,13 +33,11 @@ export default function BookList() {
         {fab.icon}
       </Fab>
 
-      <Typography align='center' variant='h5' gutterBottom>
-       
-      </Typography>
+      <Typography align='center' variant='h5' gutterBottom></Typography>
 
       <Grid container spacing={2}>
         {books.map((book) => (
-          <Book key={book.id} book={book}  />
+          <Book key={book.id} book={book} />
         ))}
       </Grid>
 

@@ -12,27 +12,23 @@ import BookDetails from "./components/book/BookDetails";
 import BookAdd from "./components/book/BookAdd";
 import AppContext from "./context/ContextApplication";
 import Footer from "./components/footer/Footer";
+import styles from "./App.module.css";
 
 function App() {
- 
   return (
     <>
       <SimpleAppbar />
-      <Routes>
-        <Route
-          path='/books/list'
-          element={
-            <BookList   />
-          }
-        />
-        <Route path='/books/details/:id' element={<BookDetails />} />
-        <Route path='/books/add' element={<BookAdd />} />
-        <Route path='/auth/login' element={<Login />} />
-        <Route path='/search' element={<Search />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/' element={<Home />} />
-      </Routes>
-      <br /><br /><br /><br /><br /><br /><br /><br />
+      <main className={styles.container}>
+        <Routes>
+          <Route path='/books/list' element={<BookList />} />
+          <Route path='/books/details/:id' element={<BookDetails />} />
+          <Route path='/books/add' element={<BookAdd />} />
+          <Route path='/auth/login' element={<Login />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );

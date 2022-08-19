@@ -38,9 +38,7 @@ export default function Book({ book }) {
   const navigate = useNavigate();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+ 
 
   const removeBook = (id) => {
     setBooks(books.filter((book) => book.id !== id));
