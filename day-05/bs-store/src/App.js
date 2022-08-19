@@ -11,6 +11,7 @@ import Home from "./pages/home/Home";
 import BookDetails from "./components/book/BookDetails";
 import BookAdd from "./components/book/BookAdd";
 import AppContext from "./context/ContextApplication";
+import Footer from "./components/footer/Footer";
 
 function App() {
  
@@ -31,7 +32,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/' element={<Home />} />
       </Routes>
-      <p>All rights reserved &copy; 2022 </p>
+      
+      <Footer />
     </>
   );
 }
