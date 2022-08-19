@@ -1,10 +1,12 @@
 import { Button, Container, Stack, TextField } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/ContextApplication";
+import {useNavigate} from "react-router-dom";
 
 export default function BookAdd() {
   // destructing...
   const { books, setBooks } = useContext(AppContext);
+  const navigate = useNavigate();
   const [book, setBook] = useState({
     id: 0,
     title: "",
@@ -23,6 +25,7 @@ export default function BookAdd() {
 
   const handleAddBook = () => {
     setBooks([...books, book])
+    navigate("/books/list")
   };
 
   return (
