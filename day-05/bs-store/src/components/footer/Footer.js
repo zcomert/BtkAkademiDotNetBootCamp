@@ -25,22 +25,22 @@ export default function Footer() {
       avatar: "B",
     },
     {
-        id: 2,
-        name: "BTK Akademi",
-        url: "#",
-        avatar: "B",
+      id: 2,
+      name: "BTK Akademi",
+      url: "#",
+      avatar: "B",
     },
     {
-        id: 3,
-        name: "1 milyon istihdam",
-        url: "#",
-        avatar: "1",
+      id: 3,
+      name: "1 milyon istihdam",
+      url: "#",
+      avatar: "1",
     },
     {
-        id: 4,
-        name: "Zafer CÖMERT",
-        url: "#",
-        avatar: "Z",
+      id: 4,
+      name: "Zafer CÖMERT",
+      url: "#",
+      avatar: "Z",
     },
   ];
 
@@ -57,40 +57,14 @@ export default function Footer() {
 
       <Grid item xs={12} md={3}>
         <List>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar sx={{ width: 24, height: 24 }} sizes='small'>
-                B
-              </Avatar>
-            </ListItemAvatar>
-            BTK
-          </ListItem>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar sx={{ width: 24, height: 24 }} sizes='small'>
-                B
-              </Avatar>
-            </ListItemAvatar>
-            BTK Akademi
-          </ListItem>
-
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar sx={{ width: 24, height: 24 }} sizes='small'>
-                1
-              </Avatar>
-            </ListItemAvatar>
-            1 milyon istihdam
-          </ListItem>
-
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar sx={{ width: 24, height: 24 }} sizes='small'>
-                Z
-              </Avatar>
-            </ListItemAvatar>
-            Zafer CÖMERT
-          </ListItem>
+          {links.map((link) => (
+            <ListItem key={link.id}>
+              <ListItemAvatar>
+                <Avatar sx={{ width: 24, height: 24 }}>{link.avatar}</Avatar>
+              </ListItemAvatar>
+              {link.name}
+            </ListItem>
+          ))}
         </List>
       </Grid>
 
