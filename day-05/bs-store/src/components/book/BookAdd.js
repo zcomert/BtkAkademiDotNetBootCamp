@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 export default function BookAdd() {
   // destructing...
-  const { books, setBooks } = useContext(AppContext);
+  const { books, setBooks, setSnackbar } = useContext(AppContext);
   const navigate = useNavigate();
   const [book, setBook] = useState({
     id: 0,
@@ -25,6 +25,11 @@ export default function BookAdd() {
 
   const handleAddBook = () => {
     setBooks([...books, book])
+    setSnackbar({
+      isOpen:true,
+      message:`${book.title} has been added successfully.`,
+      severity:'error'
+    });
     navigate("/books/list")
   };
 
