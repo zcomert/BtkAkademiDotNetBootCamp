@@ -1,3 +1,4 @@
+import { Button, Container, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import data from "../../data";
@@ -18,13 +19,41 @@ export default function BookDetails() {
   }, []);
 
   return (
-    <div>
-      <h3>{book.title}</h3>
-      <p>{book.summary}</p>
-      <h5>
-        <b>Price</b> {book.price}
-      </h5>
-      <button onClick={() => navigate("/books/list")} >Go to Book List </button>
-    </div>
+    <Container sx={{mt:3}} maxWidth="lg">
+      <Grid container>
+        <Grid item xs={12} md={4}>
+          <img src={`/books/${id}.jpg`} alt={book.title} />
+          <Button 
+          variant="outlined"
+          onClick={() => navigate("/books/list")} >Go to Book List </Button>
+        </Grid>
+        <Grid item xs={12} md={8}>
+        <Typography variant="h4">{book.title}</Typography>
+        <Typography variant="body1">{book.summary}</Typography>
+        <Paper elevation={3}>
+        {book.price}
+        </Paper>
+        </Grid>
+      </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+    </Container>
   );
 }
