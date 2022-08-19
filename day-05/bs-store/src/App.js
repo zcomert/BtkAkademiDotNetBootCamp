@@ -32,7 +32,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/' element={<Home />} />
       </Routes>
-      
+      <br /><br /><br /><br /><br /><br /><br /><br />
       <Footer />
     </>
   );
