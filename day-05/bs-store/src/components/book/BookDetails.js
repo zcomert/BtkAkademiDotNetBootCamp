@@ -7,11 +7,12 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import data from "../../data";
+import AppContext from "../../context/ContextApplication"
 
 export default function BookDetails() {
+  const {books} = useContext(AppContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const initial = {
@@ -23,7 +24,7 @@ export default function BookDetails() {
   const [book, setBook] = useState(initial);
 
   useEffect(() => {
-    setBook(data.find((book) => book.id === parseInt(id)) || initial);
+    setBook(books.find((book) => book.id === parseInt(id)) || initial);
   }, []);
 
   return (
