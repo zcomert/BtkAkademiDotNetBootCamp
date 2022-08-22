@@ -60,4 +60,13 @@ public class Practice
         var e = math.Subtraction(d + 10, c); // 16+10 - 8 = 18
         Console.WriteLine($"{d + 10}-{c} = {e}");
     }
+
+    public void UseParamsKeyword()
+    {
+        var math = new ConsoleApp.Math.Math();
+        Console.WriteLine(math.Sum(1, 3));                      // 4
+        Console.WriteLine(math.Sum(10));                        // 10
+        Console.WriteLine(math.Sum(1, 3, 4, 5));                // 13
+        Console.WriteLine(math.Sum(1, 3, 4, 5, 10, 30));        // 53
+    }
 }

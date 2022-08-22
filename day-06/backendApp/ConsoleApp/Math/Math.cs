@@ -8,6 +8,13 @@ namespace ConsoleApp.Math
 {
     public class Math
     {
+        public int Sum(params int[] numbers)
+        {
+            int acc = 0;
+            foreach (var item in numbers)
+                acc += item;
+            return acc;
+        }
         public int Sum(int a, int b )
         {
             return a + b;
