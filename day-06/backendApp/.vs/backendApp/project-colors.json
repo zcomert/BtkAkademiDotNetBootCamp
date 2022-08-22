@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f0934c22-1149-4664-bda1-839e1b879dc7": {
+      "ProjectGuid": "f0934c22-1149-4664-bda1-839e1b879dc7",
+      "DisplayName": "bsStoreApi",
+      "ColorIndex": 0
+    },
+    "2563d8ec-fbb4-4db0-8ddf-98c68f918a4b": {
+      "ProjectGuid": "2563d8ec-fbb4-4db0-8ddf-98c68f918a4b",
+      "DisplayName": "ConsoleApp",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
