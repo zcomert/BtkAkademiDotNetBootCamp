@@ -1,46 +1,29 @@
 # İçerik
 
-- React JS UI Frameworks 
-- Getting started with MUI
-  - Installation
-  - Components
-  - Container
-  - Appbar API
-  - Stack API
-  - TextField API
-  - Button API
-  - IconButton API
-  - Floating action button API
-  - Card API
-  - Typography API
+- ASP.NET Core 
+- Project templates
+- Object Oriented Programming (OOP)
+- Class
+- Field
+- Property
+  - prop
+  - propfull
+- Auto-implemented property
+- Constructor
+- Constructor overloading
+- Object
+- override
+- ToString()
 
-| Kavram               | Açıklama |
-| -------------------- | -------- |
-| **createContext**    | ...      |
-| **useContext**       | ...      |
-| **context.Provider** | ...      |
+| Kavram | Açıklama |
+| ------ | -------- |
+| ****   | ...      |
+| ****   | ...      |
+| ****   | ...      |
 
 
-## AppContext için Örnek Kullanım
+## Book Class için tanımlamalar 
 
-```js
-import { createContext, useState } from "react";
-import data from "../data";
-
-export const AppContext = createContext();
-
-export const AppContextProvider = ({ children }) => {
-    const [books, setBooks] = useState(data);
-
-  const values = {
-    books,
-    setBooks,
-    message: "Selam",
-    theme: "light",
-  };
-  return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
-};
-
-export default AppContext;
-
+```csharp
+Book book1 = new Book();
 ```

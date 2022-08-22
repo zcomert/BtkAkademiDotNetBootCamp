@@ -22,5 +22,10 @@ namespace ConsoleApp
             Id = id;
             Title = title;
         }
+
+        public override string? ToString()
+        {
+            return $"{this.Id} {this.Title}";
+        }
     }
 }
