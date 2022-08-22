@@ -25,3 +25,5 @@ D:\campweek2\day-06\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.dll
 D:\campweek2\day-06\backendApp\bsStoreApi\obj\Debug\net6.0\ref\bsStoreApi.dll
 D:\campweek2\day-06\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.pdb
 D:\campweek2\day-06\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.genruntimeconfig.cache
+D:\campweek2\day-06\backendApp\bsStoreApi\bin\Debug\net6.0\Entities.dll
+D:\campweek2\day-06\backendApp\bsStoreApi\bin\Debug\net6.0\Entities.pdb

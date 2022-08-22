@@ -13,3 +13,6 @@ D:\campweek2\day-06\backendApp\ConsoleApp\obj\Debug\net6.0\ConsoleApp.dll
 D:\campweek2\day-06\backendApp\ConsoleApp\obj\Debug\net6.0\ref\ConsoleApp.dll
 D:\campweek2\day-06\backendApp\ConsoleApp\obj\Debug\net6.0\ConsoleApp.pdb
 D:\campweek2\day-06\backendApp\ConsoleApp\obj\Debug\net6.0\ConsoleApp.genruntimeconfig.cache
+D:\campweek2\day-06\backendApp\ConsoleApp\bin\Debug\net6.0\Entities.dll
+D:\campweek2\day-06\backendApp\ConsoleApp\bin\Debug\net6.0\Entities.pdb
+D:\campweek2\day-06\backendApp\ConsoleApp\obj\Debug\net6.0\ConsoleApp.csproj.CopyComplete

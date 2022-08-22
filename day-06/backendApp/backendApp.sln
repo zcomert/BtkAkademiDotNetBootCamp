@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bsStoreApi", "bsStoreApi\bsStoreApi.csproj", "{F0934C22-1149-4664-BDA1-839E1B879DC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bsStoreApi", "bsStoreApi\bsStoreApi.csproj", "{F0934C22-1149-4664-BDA1-839E1B879DC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{2563D8EC-FBB4-4DB0-8DDF-98C68F918A4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{2563D8EC-FBB4-4DB0-8DDF-98C68F918A4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C5B0B520-222A-4C2E-A684-7591386A454A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2563D8EC-FBB4-4DB0-8DDF-98C68F918A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2563D8EC-FBB4-4DB0-8DDF-98C68F918A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2563D8EC-FBB4-4DB0-8DDF-98C68F918A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B0B520-222A-4C2E-A684-7591386A454A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B0B520-222A-4C2E-A684-7591386A454A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B0B520-222A-4C2E-A684-7591386A454A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B0B520-222A-4C2E-A684-7591386A454A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
