@@ -103,4 +103,33 @@ public class Practice
             Console.WriteLine(item);
         }
     }
+
+    public void UseListBook()
+    {
+        var bookList = new List<Book>()
+{
+    new Book(1,"Book 1"),
+    new Book(2,"Book 2"),
+    new Book(3,"Book 3"),
+    new Book(4,"Book 4"),
+    new Book(5,"Book 5"),
+};
+
+        bookList.ForEach(book => Console.WriteLine(book));
+
+        Console.WriteLine();
+        foreach (var item in bookList)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine();
+
+        int index = 0;
+        while (index < bookList.Count)
+        {
+            Console.WriteLine(bookList[index]);
+            index++;
+        }
+    }
 }
