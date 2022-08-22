@@ -1,4 +1,6 @@
-﻿Console.ReadKey();
-
+﻿
 var practice = new Practice();
-practice.ArrayDefination();
+//practice.ArrayDefination();
+practice.UseMathInProgram();
+
+Console.ReadKey();

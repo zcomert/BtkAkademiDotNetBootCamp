@@ -43,4 +43,21 @@ public class Practice
 
         Console.ReadKey();
     }
+
+    public void UseMathInProgram()
+    {
+        var math = new ConsoleApp.Math.Math();
+
+        var c = math.Sum(3, 5);
+        Console.WriteLine(typeof(ConsoleApp.Math.Math).FullName);
+        Console.WriteLine(c.GetType());
+        Console.WriteLine(c);
+
+
+        var d = math.Multipy(c, 2); // 16 
+        Console.WriteLine($"{c}*2 = {d}");
+
+        var e = math.Subtraction(d + 10, c); // 16+10 - 8 = 18
+        Console.WriteLine($"{d + 10}-{c} = {e}");
+    }
 }
