@@ -7,6 +7,7 @@ namespace bsStoreApi.Controllers
     [Route("api/books")]
     public class BooksController : ControllerBase
     {
+        [HttpGet]
         public List<Book> GetAllBooks()
         {
             var bookList = new List<Book>()
