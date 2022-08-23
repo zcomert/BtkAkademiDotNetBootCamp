@@ -25,5 +25,19 @@
       <FileName>Inheritance\Circle.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ConsoleApp.Inheritance.Triangle">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Inheritance\Triangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.Inheritance.Square">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Inheritance\Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
