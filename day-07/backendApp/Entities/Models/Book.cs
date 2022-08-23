@@ -12,5 +12,10 @@ namespace Entities.Models
         public String? Title { get; set; }
         public decimal Price { get; set; }
         public String? Summary { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id,-5} {Title,-20} {Price,-5}";
+        }
     }
 }

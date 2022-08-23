@@ -15,7 +15,17 @@
       "ProjectGuid": "c5b0b520-222a-4c2e-a684-7591386a454a",
       "DisplayName": "Entities",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "7d1a6395-cc00-46b2-a517-65ea6d21079c": {
+      "ProjectGuid": "7d1a6395-cc00-46b2-a517-65ea6d21079c",
+      "DisplayName": "Repositories",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }
