@@ -56,3 +56,8 @@ D:\campweek2\day-07\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.dll
 D:\campweek2\day-07\backendApp\bsStoreApi\obj\Debug\net6.0\ref\bsStoreApi.dll
 D:\campweek2\day-07\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.pdb
 D:\campweek2\day-07\backendApp\bsStoreApi\obj\Debug\net6.0\bsStoreApi.genruntimeconfig.cache
+D:\campweek2\day-07\backendApp\bsStoreApi\bin\Debug\net6.0\Humanizer.dll
+D:\campweek2\day-07\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\campweek2\day-07\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\campweek2\day-07\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\campweek2\day-07\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
