@@ -1,17 +1,20 @@
-﻿
+﻿// ADT: Abstract data type
 using ConsoleApp.Interface;
 
+// Zafer
 var stack = new ConsoleApp
     .Interface
-    .Stack<int>(new StackList<int>());
+    .Stack<char>(new StackLinkedList<char>());
 
-stack.Push(25);
-stack.Push(55);
-stack.Push(61);
-stack.Push(28);
-stack.Push(60);
+"zafer".ToList()
+    .ForEach(c => stack.Push(c));
 
-Console.WriteLine(stack.Peek());
+int indx = "zafer".Length;
+while (indx > 0)
+{
+    Console.Write($"{stack.Pop(),-4}");
+    indx--;
+}
 
 
 Console.ReadKey();
