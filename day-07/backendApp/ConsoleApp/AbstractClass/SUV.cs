@@ -6,5 +6,10 @@
         {
             Console.WriteLine("SUV starts engine...");
         }
+
+        public override void StopEnginee()
+        {
+            Console.WriteLine("SUV stops engine...");
+        }
     }
 }
