@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f0934c22-1149-4664-bda1-839e1b879dc7": {
+      "ProjectGuid": "f0934c22-1149-4664-bda1-839e1b879dc7",
+      "DisplayName": "bsStoreApi",
+      "ColorIndex": 0
+    },
+    "2563d8ec-fbb4-4db0-8ddf-98c68f918a4b": {
+      "ProjectGuid": "2563d8ec-fbb4-4db0-8ddf-98c68f918a4b",
+      "DisplayName": "ConsoleApp",
+      "ColorIndex": 1
+    },
+    "c5b0b520-222a-4c2e-a684-7591386a454a": {
+      "ProjectGuid": "c5b0b520-222a-4c2e-a684-7591386a454a",
+      "DisplayName": "Entities",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
