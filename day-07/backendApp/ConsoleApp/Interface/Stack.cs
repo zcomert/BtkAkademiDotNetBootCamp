@@ -2,20 +2,21 @@
 {
     public class Stack<T> : IStack<T>
     {
-        public T Peek()
+        private readonly IStack<T> _stack;
+
+        public Stack(Interface.IStack<T> stack)
         {
-            throw new NotImplementedException();
+            _stack = stack;
         }
 
-        public T Pop()
-        {
-            throw new NotImplementedException();
-        }
+        public T Peek() => _stack.Peek();
 
-        public void Push(T item)
-        {
-            throw new NotImplementedException();
-        }
+
+        public T Pop() => _stack.Pop();
+
+
+        public void Push(T item) => _stack.Push(item);
+        
     }
 
 }
