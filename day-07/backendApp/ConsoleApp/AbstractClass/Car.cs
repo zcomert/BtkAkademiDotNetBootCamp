@@ -31,13 +31,22 @@ namespace ConsoleApp.AbstractClass
             // 0 eşit
             // -1 küçük
             // +1 büyük
-            var other = (Car) obj;  // CAST
-            if (this.Year > other.Year)
-                return 1;
-            else if (this.Year == other.Year)
-                return 0;
-            else
-                return -1;   
+            var other = obj as Car;  // CAST // unboxing
+
+            if(obj is null)
+            {
+                throw new NullReferenceException("Obj is not Car.");
+            }
+
+            //if (this.Year > other.Year)
+            //    return 1;
+            //else if (this.Year == other.Year)
+            //    return 0;
+            //else
+            //    return -1;   
+
+            // return this.Year.CompareTo(other?.Year);
+            return this.Brand.CompareTo(other.Brand);
         }
     }
 }
