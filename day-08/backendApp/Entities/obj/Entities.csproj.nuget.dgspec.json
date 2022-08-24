@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\campweek2\\day-08\\backendApp\\Entities\\Entities.csproj": {}
+    "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "D:\\campweek2\\day-08\\backendApp\\Entities\\Entities.csproj": {
+    "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\campweek2\\day-08\\backendApp\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\campweek2\\day-08\\backendApp\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Zafer Cömert\\.nuget\\packages\\",
-        "outputPath": "D:\\campweek2\\day-08\\backendApp\\Entities\\obj\\",
+        "projectPath": "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\zafer\\.nuget\\packages\\",
+        "outputPath": "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zafer Cömert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

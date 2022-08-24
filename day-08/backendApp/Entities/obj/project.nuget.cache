@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g4XfwmuW4gn3auyJYfpesdSJKItcopls/E/PgJspSMlh0x1ggA94H6O4Xcr11LY/jx36vrcYRcrHxZcAV0RFwQ==",
+  "dgSpecHash": "BKCDahNBdhXtsXTf8Vzopp3xY287fnrg/XBAP+H1PskV2caYAOwINigSVPJImaBuSMxwoXDyK9/1nIj9RtSZhA==",
   "success": true,
-  "projectFilePath": "D:\\campweek2\\day-08\\backendApp\\Entities\\Entities.csproj",
+  "projectFilePath": "D:\\dotnetcampw2\\day-08\\backendApp\\Entities\\Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

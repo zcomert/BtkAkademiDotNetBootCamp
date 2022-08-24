@@ -11,7 +11,7 @@ using Repositories.Concrete;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220824075218_createDb")]
+    [Migration("20220824090949_createDb")]
     partial class createDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

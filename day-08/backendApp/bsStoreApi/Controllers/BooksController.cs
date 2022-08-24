@@ -10,15 +10,23 @@ namespace bsStoreApi.Controllers
     {
         private AppDbContext _context;
 
+        public BooksController() // DI
+        {
+            _context = new AppDbContext();  // Tightly coupled
+        }
+
         [HttpGet]
         public List<Book> GetAllBooks()
         {
-            var bookList = new List<Book>()
-            {
-                new Book() {  Id =1, Title="Book 1", Price = 50, Summary="..."},
-                new Book() {  Id =2, Title="Book 2", Price = 150, Summary="..."}
-            };
-            return bookList;
+            return _context.Books.ToList();
+        }
+
+        [HttpPost]
+        public IActionResult CreateOneBook([FromBody]Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return Ok(book);
         }
     }
 }
