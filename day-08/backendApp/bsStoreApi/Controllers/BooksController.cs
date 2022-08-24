@@ -21,15 +21,15 @@ namespace bsStoreApi.Controllers
             return _context.Books.ToList();
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetOneBook(int id)
+        [HttpGet("{id:int}")]
+        public IActionResult GetOneBook([FromRoute] int id)
         {
             var book = _context.Books.Where(b => b.Id == id)
                 .SingleOrDefault();
 
             if (book is null)
             {
-                throw new Exception();
+                throw new Exception($"Book with {id} could not found.");
             }
 
             return Ok(book);
@@ -42,5 +42,24 @@ namespace bsStoreApi.Controllers
             _context.SaveChanges();
             return Ok(book);
         }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteOneBook(int id)
+        {
+            var book = _context
+                .Books?
+                .Where(b => b.Equals(id))
+                .SingleOrDefault();
+
+            if (book is null)
+            {
+                throw new Exception($"Book with {id} could not found!");
+            }
+
+            _context.Books.Remove(book);
+            _context.SaveChanges();
+            return NoContent();
+        }
+      
     }
 }
