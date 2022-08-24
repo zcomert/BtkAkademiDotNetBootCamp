@@ -21,6 +21,20 @@ namespace bsStoreApi.Controllers
             return _context.Books.ToList();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetOneBook(int id)
+        {
+            var book = _context.Books.Where(b => b.Id == id)
+                .SingleOrDefault();
+
+            if (book is null)
+            {
+                throw new Exception();
+            }
+
+            return Ok(book);
+        }
+
         [HttpPost]
         public IActionResult CreateOneBook([FromBody]Book book)
         {
