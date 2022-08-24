@@ -44,11 +44,11 @@ namespace bsStoreApi.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneBook(int id)
+        public IActionResult DeleteOneBook([FromRoute]  int id)
         {
             var book = _context
                 .Books?
-                .Where(b => b.Equals(id))
+                .Where(b => b.Id.Equals(id))
                 .SingleOrDefault();
 
             if (book is null)
@@ -59,6 +59,33 @@ namespace bsStoreApi.Controllers
             _context.Books.Remove(book);
             _context.SaveChanges();
             return NoContent();
+        }
+
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateOneBook([FromRoute] int id, 
+            [FromBody] Book book)
+        {
+            if (id != book.Id)
+                throw new Exception("Ids are not matched.");
+            
+            var bookEntity = _context
+                .Books?
+                .Where(b => b.Id == id)
+                .SingleOrDefault();
+
+            if(bookEntity is null)
+            {
+                throw new Exception($"Book with {id} id could not found. ");
+            }
+
+            // OK 
+            bookEntity.Title = book.Title;
+            bookEntity.Price = book.Price;
+            bookEntity.Summary = book.Summary;
+
+            _context.SaveChanges();
+
+            return Accepted(bookEntity);
         }
       
     }

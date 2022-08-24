@@ -13,6 +13,8 @@ namespace Entities.Models
         public decimal Price { get; set; }
         public String? Summary { get; set; }
 
+        public DateTime AtCreated { get; set; }
+
         public override string ToString()
         {
             return $"{Id,-5} {Title,-40} {Price,-5}";
