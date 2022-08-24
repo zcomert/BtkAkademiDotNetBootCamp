@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositories.Concrete;
 
@@ -11,9 +12,10 @@ using Repositories.Concrete;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220824133831_createCategory")]
+    partial class createCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,26 +72,6 @@ namespace Repositories.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            CategoryName = "Computer Science",
-                            Description = "Computer Science description"
-                        },
-                        new
-                        {
-                            CategoryId = 2,
-                            CategoryName = "Network",
-                            Description = "Network description"
-                        },
-                        new
-                        {
-                            CategoryId = 3,
-                            CategoryName = "Database",
-                            Description = "Database description"
-                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,27 @@ namespace Repositories.Concrete.Config
         {
             builder.HasKey(c => c.CategoryId);
             builder.Property(c => c.CategoryName).IsRequired();
+
+            builder.HasData(
+                new Category()
+                {
+                    CategoryId = 1,
+                    CategoryName = "Computer Science",
+                    Description = "Computer Science description"
+                },
+                new Category()
+                {
+                    CategoryId = 2,
+                    CategoryName = "Network",
+                    Description = "Network description"
+                },
+                new Category()
+                {
+                    CategoryId = 3,
+                    CategoryName = "Database",
+                    Description = "Database description"
+                }
+            );
         }
     }
 }
