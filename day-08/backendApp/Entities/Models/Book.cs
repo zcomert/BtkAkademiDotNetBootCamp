@@ -15,7 +15,7 @@ namespace Entities.Models
 
         public override string ToString()
         {
-            return $"{Id,-5} {Title,-20} {Price,-5}";
+            return $"{Id,-5} {Title,-40} {Price,-5}";
         }
     }
 }

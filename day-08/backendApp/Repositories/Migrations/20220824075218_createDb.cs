@@ -4,7 +4,7 @@
 
 namespace Repositories.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class createDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

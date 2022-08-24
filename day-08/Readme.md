@@ -12,7 +12,7 @@
 
 | Kavram              | Açıklama |
 | ------------------- | -------- |
-| **Add-Migration**   | ...      |
+| **Drop-Database**   | ...      |
 | **Update-Database** | ...      |
 
 ## Extension method örneği 
