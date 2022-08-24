@@ -25,7 +25,6 @@ D:\campweek2\day-08\backendApp\Entities\bin\Debug\net6.0\Entities.deps.json
 D:\campweek2\day-08\backendApp\Entities\bin\Debug\net6.0\Entities.dll
 D:\campweek2\day-08\backendApp\Entities\bin\Debug\net6.0\ref\Entities.dll
 D:\campweek2\day-08\backendApp\Entities\bin\Debug\net6.0\Entities.pdb
-D:\campweek2\day-08\backendApp\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
 D:\campweek2\day-08\backendApp\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\campweek2\day-08\backendApp\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
 D:\campweek2\day-08\backendApp\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs

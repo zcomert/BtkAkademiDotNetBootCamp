@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.Concrete;
 
 namespace bsStoreApi.Controllers
 {
@@ -7,6 +8,8 @@ namespace bsStoreApi.Controllers
     [Route("api/books")]
     public class BooksController : ControllerBase
     {
+        private AppDbContext _context;
+
         [HttpGet]
         public List<Book> GetAllBooks()
         {
