@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Repositories.Contracts
 {
-    public interface IBookRepository
+    public interface IBookRepository : IEntityRepository<Book>
     {
-        List<Book> GetAllBooks();
-        Book GetOneBook(int id);
-        void AddOneBook(Book book);
-        void UpdateOneBook(int id, Book book);
-
-        void DeleteOneBook(Book book);
+      
     }
 }
