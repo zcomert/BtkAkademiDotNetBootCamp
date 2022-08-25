@@ -7,12 +7,13 @@ namespace bsStoreApi.Controllers
     [Route("api/categories")]
     public class CategoriesController : ControllerBase
     {
-        private AppDbContext _context;
-        public CategoriesController()
+        // DI : Depedency Injection
+        private readonly AppDbContext _context;
+        public CategoriesController(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context; // Constructor injection
         }
-        
+
         [HttpGet]
         public IActionResult GetAllCategories()
         {
