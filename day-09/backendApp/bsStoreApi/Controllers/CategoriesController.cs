@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositories.Concrete;
+using Repositories.Contracts;
 
 namespace bsStoreApi.Controllers
 {
@@ -7,26 +8,24 @@ namespace bsStoreApi.Controllers
     [Route("api/categories")]
     public class CategoriesController : ControllerBase
     {
-        // DI : Depedency Injection
-        private readonly AppDbContext _context;
-        public CategoriesController(AppDbContext context)
+        private readonly ICategoryRepository _categoryRepository;
+
+        public CategoriesController(ICategoryRepository context)
         {
-            _context = context; // Constructor injection
+            _categoryRepository = context;
         }
 
         [HttpGet]
         public IActionResult GetAllCategories()
         {
-            return Ok(_context.Categories?.ToList());
+            return Ok(_categoryRepository.GetAllCategories());
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetOneCategory([FromRoute] int id)
         {
-            var category = _context
-                .Categories?
-                .Where(c => c.CategoryId == id)
-                .SingleOrDefault();
+            var category = _categoryRepository
+                .GetOneCategory(id);
 
             if (category is null)
                 throw new Exception("Category not found.");

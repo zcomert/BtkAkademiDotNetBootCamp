@@ -16,6 +16,7 @@ namespace bsStoreApi.Extensions
         public static void RegisterToIoC(this IServiceCollection services)
         {
             services.AddScoped<IBookRepository, EfBookRepository>();
+            services.AddScoped<ICategoryRepository, EfCategoryRepository>();
         }
     }
 }
