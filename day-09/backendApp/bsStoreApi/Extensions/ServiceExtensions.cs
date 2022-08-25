@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repositories.Concrete;
+using Repositories.Concrete.MySql;
+using Repositories.Contracts;
 
 namespace bsStoreApi.Extensions
 {
@@ -11,5 +13,12 @@ namespace bsStoreApi.Extensions
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
         }
+
+        public static void RegisterToIoC(this IServiceCollection services)
+        {
+            services.AddScoped<IBookRepository, MySqlBookRepository>();
+        }
     }
 }
+
+   

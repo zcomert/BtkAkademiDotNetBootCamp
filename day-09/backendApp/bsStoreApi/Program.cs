@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSqlConnection(builder.Configuration);
+builder.Services.RegisterToIoC();
 
 
 
