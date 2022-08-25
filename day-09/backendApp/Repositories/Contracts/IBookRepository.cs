@@ -9,6 +9,6 @@ namespace Repositories.Contracts
 {
     public interface IBookRepository : IEntityRepository<Book>
     {
-      
+        List<Book> GetLastestBook(); // 5 döneceğiz!
     }
 }

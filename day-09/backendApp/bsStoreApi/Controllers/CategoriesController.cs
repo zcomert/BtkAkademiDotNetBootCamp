@@ -18,14 +18,14 @@ namespace bsStoreApi.Controllers
         [HttpGet]
         public IActionResult GetAllCategories()
         {
-            return Ok(_categoryRepository.GetAllCategories());
+            return Ok(_categoryRepository.GetAll());
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetOneCategory([FromRoute] int id)
         {
             var category = _categoryRepository
-                .GetOneCategory(id);
+                .Get(c => c.CategoryId==id);
 
             if (category is null)
                 throw new Exception("Category not found.");

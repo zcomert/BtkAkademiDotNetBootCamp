@@ -12,6 +12,16 @@ namespace Repositories.Concrete
     {
         public EfBookRepository(AppDbContext context) : base(context)
         {
+
+        }
+
+        public List<Book> GetLastestBook()
+        {
+            return _context
+                .Books
+                .OrderByDescending(b => b.Id)
+                .Take(5)
+                .ToList(); 
         }
     }
 }

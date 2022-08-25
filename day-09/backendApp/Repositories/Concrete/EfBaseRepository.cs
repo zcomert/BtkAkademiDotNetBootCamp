@@ -12,7 +12,7 @@ namespace Repositories.Concrete
     public abstract class EfBaseRepository<T> : IEntityRepository<T>
         where T : class
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
         public EfBaseRepository(AppDbContext context)
         {
@@ -35,7 +35,7 @@ namespace Repositories.Concrete
         {
             return _context
                 .Set<T>()
-                .Where(filter)
+                .Where(filter) 
                 .SingleOrDefault();
         }
 

@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace Repositories.Contracts
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IEntityRepository<Category>
     {
-        List<Category> GetAllCategories();
-        Category GetOneCategory(int id);
-        void CreateOneCategory(Category category);
-        void UpdateOneCategory(int id, Category category);
-        void DeleteOneCategory(Category category);
+      
     }
 }
