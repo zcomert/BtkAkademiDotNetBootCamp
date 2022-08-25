@@ -12,5 +12,8 @@ namespace Repositories.Contracts
         List<Book> GetAllBooks();
         Book GetOneBook(int id);
         void AddOneBook(Book book);
+        void UpdateOneBook(int id, Book book);
+
+        void DeleteOneBook(Book book);
     }
 }

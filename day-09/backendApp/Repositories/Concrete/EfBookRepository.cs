@@ -23,6 +23,12 @@ namespace Repositories.Concrete
             _context.SaveChanges();
         }
 
+        public void DeleteOneBook(Book book)
+        {
+           _context.Books.Remove(book);
+           _context.SaveChanges();
+        }
+
         public List<Book> GetAllBooks()
         {
             return _context.Books.ToList();
