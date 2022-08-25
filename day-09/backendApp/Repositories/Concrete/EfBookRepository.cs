@@ -19,7 +19,7 @@ namespace Repositories.Concrete
 
         public void AddOneBook(Book book)
         {
-            _context.Add(book);
+            _context.Books.Add(book);
             _context.SaveChanges();
         }
 

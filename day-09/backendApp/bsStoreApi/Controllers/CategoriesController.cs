@@ -12,7 +12,7 @@ namespace bsStoreApi.Controllers
 
         public CategoriesController(ICategoryRepository context)
         {
-            _categoryRepository = context;
+            _categoryRepository = context;      // constructor injection
         }
 
         [HttpGet]
