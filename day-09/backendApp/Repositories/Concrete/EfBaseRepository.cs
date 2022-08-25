@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories.Concrete
 {
-    public class EfBaseRepository<T> : IEntityRepository<T>
+    public abstract class EfBaseRepository<T> : IEntityRepository<T>
         where T : class
     {
         private readonly AppDbContext _context;
