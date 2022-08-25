@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repositories.Concrete;
 
@@ -11,9 +12,10 @@ using Repositories.Concrete;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220825131833_AuthorWithDefaultValue")]
+    partial class AuthorWithDefaultValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,26 +43,6 @@ namespace Repositories.Migrations
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            AuthorId = 1,
-                            FirstName = "İskender",
-                            LastName = "Pala"
-                        },
-                        new
-                        {
-                            AuthorId = 2,
-                            FirstName = "Ali",
-                            LastName = "Şeriatı"
-                        },
-                        new
-                        {
-                            AuthorId = 3,
-                            FirstName = "Ömer",
-                            LastName = "Seyfettin"
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.Book", b =>
