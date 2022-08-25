@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repositories.Concrete;
-using Repositories.Concrete.MySql;
 using Repositories.Contracts;
 
 namespace bsStoreApi.Extensions
@@ -16,7 +15,7 @@ namespace bsStoreApi.Extensions
 
         public static void RegisterToIoC(this IServiceCollection services)
         {
-            services.AddScoped<IBookRepository, MySqlBookRepository>();
+            services.AddScoped<IBookRepository, EfBookRepository>();
         }
     }
 }
