@@ -8,23 +8,23 @@ namespace bsStoreApi.Controllers
     [Route("api/books")]
     public class BooksController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly EfBookRepository _bookRepository;
 
-        public BooksController(AppDbContext context) // Constructor injection : IoC
+        public BooksController()
         {
-            _context = context;
+            _bookRepository = new EfBookRepository(new AppDbContext());
         }
 
         [HttpGet]
         public List<Book> GetAllBooks()
         {
-            return _context.Books.ToList();
+            return _bookRepository.Books.ToList();
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetOneBook([FromRoute] int id)
         {
-            var book = _context.Books.Where(b => b.Id == id)
+            var book = _bookRepository.Books.Where(b => b.Id == id)
                 .SingleOrDefault();
 
             if (book is null)
@@ -38,15 +38,15 @@ namespace bsStoreApi.Controllers
         [HttpPost]
         public IActionResult CreateOneBook([FromBody]Book book)
         {
-            _context.Books.Add(book);
-            _context.SaveChanges();
+            _bookRepository.Books.Add(book);
+            _bookRepository.SaveChanges();
             return Ok(book);
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult DeleteOneBook([FromRoute]  int id)
         {
-            var book = _context
+            var book = _bookRepository
                 .Books?
                 .Where(b => b.Id.Equals(id))
                 .SingleOrDefault();
@@ -56,8 +56,8 @@ namespace bsStoreApi.Controllers
                 throw new Exception($"Book with {id} could not found!");
             }
 
-            _context.Books.Remove(book);
-            _context.SaveChanges();
+            _bookRepository.Books.Remove(book);
+            _bookRepository.SaveChanges();
             return NoContent();
         }
 
@@ -68,7 +68,7 @@ namespace bsStoreApi.Controllers
             if (id != book.Id)
                 throw new Exception("Ids are not matched.");
             
-            var bookEntity = _context
+            var bookEntity = _bookRepository
                 .Books?
                 .Where(b => b.Id == id)
                 .SingleOrDefault();
@@ -83,7 +83,7 @@ namespace bsStoreApi.Controllers
             bookEntity.Price = book.Price;
             bookEntity.Summary = book.Summary;
 
-            _context.SaveChanges();
+            _bookRepository.SaveChanges();
 
             return Accepted(bookEntity);
         }
