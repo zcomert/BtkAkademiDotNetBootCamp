@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.Contracts
 {
-    internal interface IBookService
+    public interface IBookService
     {
+        List<Book> GetAllBooks(Expression<Func<Book, bool>> filter=null);
     }
 }
