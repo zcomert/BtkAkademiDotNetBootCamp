@@ -24,5 +24,11 @@ namespace bsStoreApi.Presentation.Controllers
         {
             return Ok(_authorService.GetAllAuthors());  
         }
+
+        [HttpGet("{id:int}")]
+        public IActionResult GetOneAuthor([FromRoute(Name ="id")] int id)
+        {
+            return Ok(_authorService.GetOneAuthor(id));
+        }
     }
 }
