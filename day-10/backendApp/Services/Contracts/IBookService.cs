@@ -14,5 +14,6 @@ namespace Services.Contracts
         Book GetOneBook(int id);
 
         Book CreateOneBook(Book book);
+        Book UpdateOneBook(int id, Book book);
     }
 }

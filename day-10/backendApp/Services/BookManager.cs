@@ -44,5 +44,26 @@ namespace Services
             }
             return book;
         }
+
+        public Book UpdateOneBook(int id, Book book)
+        {
+            if(book.Id != id)
+            {
+                throw new Exception("Ids are not matched.");
+            }
+
+            var tobeUptatedBook = GetOneBook(id);
+            if(tobeUptatedBook is null)
+            {
+                throw new Exception("Book could not found.");
+            }
+
+            tobeUptatedBook.Title = book.Title;
+            tobeUptatedBook.Price = book.Price;
+            tobeUptatedBook.Summary = book.Summary;
+
+            _bookRepository.Update(tobeUptatedBook);
+            return tobeUptatedBook;
+        }
     }
 }

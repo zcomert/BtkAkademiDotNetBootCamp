@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -32,12 +33,12 @@ namespace bsStoreApi.Presentation.Controllers
             return Ok(book);
         }
 
-        //[HttpPost]
-        //public IActionResult CreateOneBook([FromBody] Book book)
-        //{
-        //    _bookService.Add(book);
-        //    return Ok(book);
-        //}
+        [HttpPost]
+        public IActionResult CreateOneBook([FromBody] Book book)
+        {
+            _bookService.CreateOneBook(book);
+            return Ok(book);
+        }
 
         //[HttpDelete("{id:int}")]
         //public IActionResult DeleteOneBook([FromRoute] int id)
