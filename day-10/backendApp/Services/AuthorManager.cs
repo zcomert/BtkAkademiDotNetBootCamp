@@ -29,6 +29,12 @@ namespace Services
             return author;
         }
 
+        public void DeleteOneAuthor(int authorId)
+        {
+            var author = GetOneAuthor(authorId);
+            _authorRepository.Delete(author);
+        }
+
         public List<Author> GetAllAuthors(Expression<Func<Author, bool>> filter = null)
         {
             return _authorRepository.GetAll(filter);
@@ -52,6 +58,13 @@ namespace Services
             }
 
             var authorTobeUpdated = GetOneAuthor(authorId);
+
+            authorTobeUpdated.FirstName = author.FirstName;
+            authorTobeUpdated.LastName = author.LastName;
+
+            _authorRepository.Update(authorTobeUpdated);
+
+            return authorTobeUpdated;
         }
     }
 }

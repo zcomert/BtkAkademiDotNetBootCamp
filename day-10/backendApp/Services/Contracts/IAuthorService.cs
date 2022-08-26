@@ -11,9 +11,10 @@ namespace Services.Contracts
     public interface IAuthorService
     {
         List<Author> GetAllAuthors(Expression<Func<Author,bool>> filter=null);
-        Author GetOneAuthor(int id);
+        Author GetOneAuthor(int authorId);
 
         Author CreateOneAuthor(Author author);
         Author UpdateOneAuthor(int authorId, Author author);
+        void DeleteOneAuthor(int authorId);
     }
 }
