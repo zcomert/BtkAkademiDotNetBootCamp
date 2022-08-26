@@ -40,44 +40,19 @@ namespace bsStoreApi.Presentation.Controllers
             return Ok(book);
         }
 
-        //[HttpDelete("{id:int}")]
-        //public IActionResult DeleteOneBook([FromRoute] int id)
-        //{
-        //    var book = _bookService.Get(b => b.Id == id);
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteOneBook([FromRoute(Name ="id")] int id)
+        {
+            _bookService.DeleteOneBook(id);
+            return NoContent();
+        }
 
-        //    if (book is null)
-        //    {
-        //        throw new Exception($"Book with {id} could not found!");
-        //    }
-
-        //    _bookService.Delete(book);
-        //    return NoContent();
-        //}
-
-        //[HttpPut("{id:int}")]
-        //public IActionResult UpdateOneBook([FromRoute] int id,
-        //    [FromBody] Book book)
-        //{
-        //    if (id != book.Id)
-        //        throw new Exception("Ids are not matched.");
-
-        //    var bookEntity = _bookService.Get(b => b.Id == id);
-
-
-        //    if (bookEntity is null)
-        //    {
-        //        throw new Exception($"Book with {id} id could not found. ");
-        //    }
-
-        //    // OK 
-        //    bookEntity.Title = book.Title;
-        //    bookEntity.Price = book.Price;
-        //    bookEntity.Summary = book.Summary;
-
-        //    _bookService.Update(bookEntity);
-
-        //    return Accepted(bookEntity);
-        //}
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateOneBook([FromRoute] int id,
+            [FromBody] Book book)
+        {      
+            return Accepted(_bookService.UpdateOneBook(id,book));
+        }
 
         //[HttpGet("getlastestbook")]
         //public IActionResult GetLastestBooks()

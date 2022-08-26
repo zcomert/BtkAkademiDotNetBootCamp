@@ -30,6 +30,12 @@ namespace Services
             return book;
         }
 
+        public void DeleteOneBook(int id)
+        {
+            var book = GetOneBook(id);
+            _bookRepository.Delete(book);
+        }
+
         public List<Book> GetAllBooks(Expression<Func<Book, bool>> filter = null)
         {
             return _bookRepository.GetAll(filter);
@@ -53,10 +59,6 @@ namespace Services
             }
 
             var tobeUptatedBook = GetOneBook(id);
-            if(tobeUptatedBook is null)
-            {
-                throw new Exception("Book could not found.");
-            }
 
             tobeUptatedBook.Title = book.Title;
             tobeUptatedBook.Price = book.Price;
