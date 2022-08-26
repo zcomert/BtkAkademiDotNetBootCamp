@@ -25,7 +25,22 @@
       "ProjectGuid": "7d1a6395-cc00-46b2-a517-65ea6d21079c",
       "DisplayName": "Repositories",
       "ColorIndex": 3
+    },
+    "29266563-a959-419b-a90f-85ba1743cd82": {
+      "ProjectGuid": "29266563-a959-419b-a90f-85ba1743cd82",
+      "DisplayName": "bsStoreApi.Presentation",
+      "ColorIndex": 4
+    },
+    "7780038a-1fe0-4f60-9357-f34ce5b32013": {
+      "ProjectGuid": "7780038a-1fe0-4f60-9357-f34ce5b32013",
+      "DisplayName": "bsStoreApi.Presentation",
+      "ColorIndex": 5
+    },
+    "e2233de4-ad9d-4b5e-b46f-8e9ebfe92ef0": {
+      "ProjectGuid": "e2233de4-ad9d-4b5e-b46f-8e9ebfe92ef0",
+      "DisplayName": "Services",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 7
 }
