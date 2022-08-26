@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -51,7 +52,7 @@ namespace Services
             var book = _bookRepository.Get(b => b.Id == id);
             if (book is null)
             {
-                throw new Exception("Book could not found.");
+                throw new BookNotFoundException(id);
             }
             return book;
         }
