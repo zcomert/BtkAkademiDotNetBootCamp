@@ -23,5 +23,15 @@ namespace Services
         {
             return _bookRepository.GetAll(filter);
         }
+
+        public Book GetOneBook(int id)
+        {
+            var book = _bookRepository.Get(b => b.Id == id);
+            if (book is null)
+            {
+                throw new Exception("Book could not found.");
+            }
+            return book;
+        }
     }
 }
