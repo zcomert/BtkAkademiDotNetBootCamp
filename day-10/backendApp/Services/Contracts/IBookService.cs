@@ -12,5 +12,7 @@ namespace Services.Contracts
     {
         List<Book> GetAllBooks(Expression<Func<Book, bool>> filter=null);
         Book GetOneBook(int id);
+
+        Book CreateOneBook(Book book);
     }
 }

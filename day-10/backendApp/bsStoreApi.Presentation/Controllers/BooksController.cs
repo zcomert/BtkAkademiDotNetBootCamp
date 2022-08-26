@@ -25,18 +25,12 @@ namespace bsStoreApi.Presentation.Controllers
             return Ok(_bookService.GetAllBooks());
         }
 
-        //[HttpGet("{id:int}")]
-        //public IActionResult GetOneBook([FromRoute] int id)
-        //{
-        //    var book = _bookService.Get(b => b.Id == id);
-
-        //    if (book is null)
-        //    {
-        //        throw new Exception($"Book with {id} could not found.");
-        //    }
-
-        //    return Ok(book);
-        //}
+        [HttpGet("{id:int}")]
+        public IActionResult GetOneBook([FromRoute(Name ="id")] int id)
+        {
+            var book = _bookService.GetOneBook(id);
+            return Ok(book);
+        }
 
         //[HttpPost]
         //public IActionResult CreateOneBook([FromBody] Book book)

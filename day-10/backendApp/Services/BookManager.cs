@@ -19,6 +19,17 @@ namespace Services
             _bookRepository = bookRepository;
         }
 
+        public Book CreateOneBook(Book book)
+        {
+            if (book is null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            _bookRepository.Add(book);
+            return book;
+        }
+
         public List<Book> GetAllBooks(Expression<Func<Book, bool>> filter = null)
         {
             return _bookRepository.GetAll(filter);
