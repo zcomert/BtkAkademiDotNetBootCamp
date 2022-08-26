@@ -52,7 +52,7 @@ namespace Services
 
         public Category UpdateOneCategory(int categoryId, Category category)
         {
-            if(categoryId == category.CategoryId)
+            if(categoryId != category.CategoryId)
             {
                 throw new ArgumentException("Ids could not be matched.");
             }

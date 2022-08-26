@@ -19,7 +19,9 @@ namespace bsStoreApi.Extensions
         {
             services.AddScoped<IBookRepository, EfBookRepository>();
             services.AddScoped<IBookService, BookManager>();
+            
             services.AddScoped<ICategoryRepository, EfCategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
             
             services.AddScoped<IAuthorRepository, EfAuthorRepository>();
             services.AddScoped<IAuthorService, AuthorManager>();
