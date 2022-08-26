@@ -23,6 +23,7 @@ namespace bsStoreApi.Presentation.Controllers
         [HttpGet]
         public IActionResult GetAllBooks()
         {
+            throw new Exception("HAATTAAA!!!");
             return Ok(_bookService.GetAllBooks());
         }
 
