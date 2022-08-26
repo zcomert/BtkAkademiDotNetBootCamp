@@ -43,5 +43,15 @@ namespace Services
             }
             return author;
         }
+
+        public Author UpdateOneAuthor(int authorId, Author author)
+        {
+            if (authorId != author.AuthorId)
+            {
+                throw new Exception("Ids could not be matched.");
+            }
+
+            var authorTobeUpdated = GetOneAuthor(authorId);
+        }
     }
 }

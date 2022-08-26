@@ -14,5 +14,6 @@ namespace Services.Contracts
         Author GetOneAuthor(int id);
 
         Author CreateOneAuthor(Author author);
+        Author UpdateOneAuthor(int authorId, Author author);
     }
 }
