@@ -15,12 +15,12 @@ namespace Repositories.Concrete
 
         }
 
-        public List<Book> GetLastestBook()
+        public List<Book> GetLastestBook(int n)
         {
             return _context
                 .Books
                 .OrderByDescending(b => b.Id)
-                .Take(5)
+                .Take(n)
                 .ToList(); 
         }
     }

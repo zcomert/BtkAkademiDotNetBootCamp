@@ -54,11 +54,12 @@ namespace bsStoreApi.Presentation.Controllers
             return Accepted(_bookService.UpdateOneBook(id,book));
         }
 
-        //[HttpGet("getlastestbook")]
-        //public IActionResult GetLastestBooks()
-        //{
-        //    return Ok(_bookService.GetLastestBook());
-        //}
+        // ./api/books/getlastestbooks?numberOfbooks=15
+        [HttpGet("getlastestbooks")]
+        public IActionResult GetLastestBooks([FromQuery] int numberOfbooks)
+        {
+            return Ok(_bookService.GetLastestBook(numberOfbooks));
+        }
 
     }
 }

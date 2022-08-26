@@ -43,7 +43,7 @@ namespace Services
 
         public List<Book> GetLastestBook(int n)
         {
-            _bookRepository.GetLastestBook();
+            return _bookRepository.GetLastestBook(n);
         }
 
         public Book GetOneBook(int id)
