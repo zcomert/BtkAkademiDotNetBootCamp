@@ -16,5 +16,7 @@ namespace Services.Contracts
         Book CreateOneBook(Book book);
         Book UpdateOneBook(int id, Book book);
         void DeleteOneBook(int id);
+
+        List<Book> GetLastestBook(int n);
     }
 }

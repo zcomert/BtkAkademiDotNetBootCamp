@@ -41,6 +41,11 @@ namespace Services
             return _bookRepository.GetAll(filter);
         }
 
+        public List<Book> GetLastestBook(int n)
+        {
+            _bookRepository.GetLastestBook();
+        }
+
         public Book GetOneBook(int id)
         {
             var book = _bookRepository.Get(b => b.Id == id);
