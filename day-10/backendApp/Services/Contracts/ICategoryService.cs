@@ -14,7 +14,7 @@ namespace Services.Contracts
         Category GetOneCategory(int categoryId);
 
         Category CreateOneCategory(Category category);
-        Category UpdateOneCategory(int categoryId, Category author);
+        Category UpdateOneCategory(int categoryId, Category category);
         void DeleteOneCategory(int categoryId);
     }
 }
