@@ -11,5 +11,8 @@ namespace Entities.Models
         public int CategoryId { get; set; } // PK
         public String? CategoryName { get; set; }
         public String? Description { get; set; }
+
+        // Collection navigation property
+        public ICollection<Book> Books { get; set; }
     }
 }

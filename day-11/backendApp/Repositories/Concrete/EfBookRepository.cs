@@ -20,7 +20,8 @@ namespace Repositories.Concrete
         {
             return _context
                  .Books
-                 .Include(b => b.BookDetail) // navigation property
+                 .Include(b => b.BookDetail)    // navigation property
+                 .Include(b => b.Category)      // navigation property
                  .ToList();
         }
 

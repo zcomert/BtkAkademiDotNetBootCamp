@@ -21,9 +21,9 @@ namespace Repositories.Concrete.Config
             builder.Property(b => b.AtCreated).HasDefaultValueSql("GETDATE()");
 
             builder.HasData(
-                new Book() { Id=1, Title="Devlet", Price=120, Summary="..."},
-                new Book() { Id=2, Title="Nutuk", Price=120, Summary="..."},
-                new Book() { Id=3, Title="Vatan", Price=120, Summary="..."}
+                new Book() { Id = 1, CategoryId = 1, Title = "Devlet", Price = 120, Summary = "..." },
+                new Book() { Id = 2, CategoryId = 1, Title = "Nutuk", Price = 120, Summary = "..." },
+                new Book() { Id = 3, CategoryId = 2, Title = "Vatan", Price = 120, Summary = "..." }
                 );
         }
     }

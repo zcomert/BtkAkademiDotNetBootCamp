@@ -18,6 +18,10 @@ namespace Entities.Models
         // navigation property
         public BookDetail BookDetail { get; set; }
 
+        // navigation
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
         public override string ToString()
         {
             return $"{Id,-5} {Title,-40} {Price,-5}";

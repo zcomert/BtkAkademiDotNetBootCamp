@@ -18,6 +18,6 @@ namespace Entities.Models
 
         public int? BookId { get; set; }
         // navigation property
-        public Book Book { get; set; }
+        public Book? Book { get; set; }
     }
 }
