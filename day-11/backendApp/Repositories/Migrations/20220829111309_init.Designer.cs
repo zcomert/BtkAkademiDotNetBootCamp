@@ -12,7 +12,7 @@ using Repositories.Concrete;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220829082001_init")]
+    [Migration("20220829111309_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,9 @@ namespace Repositories.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(18,2)")
@@ -92,6 +95,8 @@ namespace Repositories.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Books");
 
                     b.HasData(
@@ -99,6 +104,7 @@ namespace Repositories.Migrations
                         {
                             Id = 1,
                             AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CategoryId = 1,
                             Price = 120m,
                             Summary = "...",
                             Title = "Devlet"
@@ -107,6 +113,7 @@ namespace Repositories.Migrations
                         {
                             Id = 2,
                             AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CategoryId = 1,
                             Price = 120m,
                             Summary = "...",
                             Title = "Nutuk"
@@ -115,9 +122,83 @@ namespace Repositories.Migrations
                         {
                             Id = 3,
                             AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CategoryId = 2,
                             Price = 120m,
                             Summary = "...",
                             Title = "Vatan"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.BookAuthor", b =>
+                {
+                    b.Property<int>("BookAuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookAuthorId"), 1L, 1);
+
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookAuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookAuthors");
+
+                    b.HasData(
+                        new
+                        {
+                            BookAuthorId = 1,
+                            AuthorId = 1,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 2,
+                            AuthorId = 2,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 3,
+                            AuthorId = 3,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 4,
+                            AuthorId = 2,
+                            BookId = 2
+                        },
+                        new
+                        {
+                            BookAuthorId = 5,
+                            AuthorId = 3,
+                            BookId = 2
+                        },
+                        new
+                        {
+                            BookAuthorId = 6,
+                            AuthorId = 1,
+                            BookId = 3
+                        },
+                        new
+                        {
+                            BookAuthorId = 7,
+                            AuthorId = 2,
+                            BookId = 3
+                        },
+                        new
+                        {
+                            BookAuthorId = 8,
+                            AuthorId = 3,
+                            BookId = 3
                         });
                 });
 
@@ -239,19 +320,59 @@ namespace Repositories.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Entities.Models.BookDetail", b =>
+            modelBuilder.Entity("Entities.Models.Book", b =>
                 {
+                    b.HasOne("Entities.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Entities.Models.BookAuthor", b =>
+                {
+                    b.HasOne("Entities.Models.Author", "Author")
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Entities.Models.Book", "Book")
-                        .WithOne("BookDetail")
-                        .HasForeignKey("Entities.Models.BookDetail", "BookId");
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Author");
 
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("Entities.Models.BookDetail", b =>
+                {
+                    b.HasOne("Entities.Models.Book", "Book")
+                        .WithOne("BookDetail")
+                        .HasForeignKey("Entities.Models.BookDetail", "BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Entities.Models.Author", b =>
+                {
+                    b.Navigation("BookAuthors");
+                });
+
             modelBuilder.Entity("Entities.Models.Book", b =>
                 {
+                    b.Navigation("BookAuthors");
+
                     b.Navigation("BookDetail")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

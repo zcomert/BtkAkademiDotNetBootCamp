@@ -24,22 +24,6 @@ namespace Repositories.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Books",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 10m),
-                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AtCreated = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Books", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
@@ -51,6 +35,55 @@ namespace Repositories.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 10m),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AtCreated = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Books_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookAuthors",
+                columns: table => new
+                {
+                    BookAuthorId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: true),
+                    AuthorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookAuthors", x => x.BookAuthorId);
+                    table.ForeignKey(
+                        name: "FK_BookAuthors_Authors_AuthorId",
+                        column: x => x.AuthorId,
+                        principalTable: "Authors",
+                        principalColumn: "AuthorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookAuthors_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,7 +107,8 @@ namespace Repositories.Migrations
                         name: "FK_BookDetails_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -88,16 +122,6 @@ namespace Repositories.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Books",
-                columns: new[] { "Id", "Price", "Summary", "Title" },
-                values: new object[,]
-                {
-                    { 1, 120m, "...", "Devlet" },
-                    { 2, 120m, "...", "Nutuk" },
-                    { 3, 120m, "...", "Vatan" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "CategoryId", "CategoryName", "Description" },
                 values: new object[,]
@@ -108,19 +132,54 @@ namespace Repositories.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "BookDetails",
-                columns: new[] { "BookDetailId", "BookId", "City", "Country", "ISBN", "Language", "NumberOfPage", "Publisher" },
-                values: new object[] { 1, 1, "Samsun", "Turkey", "1234-5456-1234", "Turkish", 100, "Samsun University" });
+                table: "Books",
+                columns: new[] { "Id", "CategoryId", "Price", "Summary", "Title" },
+                values: new object[] { 1, 1, 120m, "...", "Devlet" });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "CategoryId", "Price", "Summary", "Title" },
+                values: new object[] { 2, 1, 120m, "...", "Nutuk" });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "CategoryId", "Price", "Summary", "Title" },
+                values: new object[] { 3, 2, 120m, "...", "Vatan" });
+
+            migrationBuilder.InsertData(
+                table: "BookAuthors",
+                columns: new[] { "BookAuthorId", "AuthorId", "BookId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 },
+                    { 3, 3, 1 },
+                    { 4, 2, 2 },
+                    { 5, 3, 2 },
+                    { 6, 1, 3 },
+                    { 7, 2, 3 },
+                    { 8, 3, 3 }
+                });
 
             migrationBuilder.InsertData(
                 table: "BookDetails",
                 columns: new[] { "BookDetailId", "BookId", "City", "Country", "ISBN", "Language", "NumberOfPage", "Publisher" },
-                values: new object[] { 2, 2, "Ankara", "Turkey", "1234-5456-7891", "Turkish", 150, "Gazi University" });
+                values: new object[,]
+                {
+                    { 1, 1, "Samsun", "Turkey", "1234-5456-1234", "Turkish", 100, "Samsun University" },
+                    { 2, 2, "Ankara", "Turkey", "1234-5456-7891", "Turkish", 150, "Gazi University" },
+                    { 3, 3, "İstanbul", "Turkey", "8741-5456-1234", "Turkish", 78, "Yıldız Techincal University" }
+                });
 
-            migrationBuilder.InsertData(
-                table: "BookDetails",
-                columns: new[] { "BookDetailId", "BookId", "City", "Country", "ISBN", "Language", "NumberOfPage", "Publisher" },
-                values: new object[] { 3, 3, "İstanbul", "Turkey", "8741-5456-1234", "Turkish", 78, "Yıldız Techincal University" });
+            migrationBuilder.CreateIndex(
+                name: "IX_BookAuthors_AuthorId",
+                table: "BookAuthors",
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookAuthors_BookId",
+                table: "BookAuthors",
+                column: "BookId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookDetails_BookId",
@@ -128,21 +187,29 @@ namespace Repositories.Migrations
                 column: "BookId",
                 unique: true,
                 filter: "[BookId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_CategoryId",
+                table: "Books",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Authors");
+                name: "BookAuthors");
 
             migrationBuilder.DropTable(
                 name: "BookDetails");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Authors");
 
             migrationBuilder.DropTable(
                 name: "Books");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

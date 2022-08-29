@@ -19,8 +19,8 @@ namespace Entities.Models
         public BookDetail BookDetail { get; set; }
 
         // navigation
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
 
         // collection navigation property
         public ICollection<BookAuthor> BookAuthors { get; set; }

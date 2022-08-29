@@ -40,7 +40,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
@@ -76,7 +76,7 @@ namespace Repositories.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -95,7 +95,7 @@ namespace Repositories.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
 
                     b.HasData(
                         new
@@ -124,6 +124,79 @@ namespace Repositories.Migrations
                             Price = 120m,
                             Summary = "...",
                             Title = "Vatan"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.BookAuthor", b =>
+                {
+                    b.Property<int>("BookAuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookAuthorId"), 1L, 1);
+
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookAuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookAuthors");
+
+                    b.HasData(
+                        new
+                        {
+                            BookAuthorId = 1,
+                            AuthorId = 1,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 2,
+                            AuthorId = 2,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 3,
+                            AuthorId = 3,
+                            BookId = 1
+                        },
+                        new
+                        {
+                            BookAuthorId = 4,
+                            AuthorId = 2,
+                            BookId = 2
+                        },
+                        new
+                        {
+                            BookAuthorId = 5,
+                            AuthorId = 3,
+                            BookId = 2
+                        },
+                        new
+                        {
+                            BookAuthorId = 6,
+                            AuthorId = 1,
+                            BookId = 3
+                        },
+                        new
+                        {
+                            BookAuthorId = 7,
+                            AuthorId = 2,
+                            BookId = 3
+                        },
+                        new
+                        {
+                            BookAuthorId = 8,
+                            AuthorId = 3,
+                            BookId = 3
                         });
                 });
 
@@ -167,7 +240,7 @@ namespace Repositories.Migrations
                         .IsUnique()
                         .HasFilter("[BookId] IS NOT NULL");
 
-                    b.ToTable("BookDetails", (string)null);
+                    b.ToTable("BookDetails");
 
                     b.HasData(
                         new
@@ -222,7 +295,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -250,10 +323,26 @@ namespace Repositories.Migrations
                     b.HasOne("Entities.Models.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Entities.Models.BookAuthor", b =>
+                {
+                    b.HasOne("Entities.Models.Author", "Author")
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Entities.Models.Book", "Book")
+                        .WithMany("BookAuthors")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Entities.Models.BookDetail", b =>
@@ -266,8 +355,15 @@ namespace Repositories.Migrations
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("Entities.Models.Author", b =>
+                {
+                    b.Navigation("BookAuthors");
+                });
+
             modelBuilder.Entity("Entities.Models.Book", b =>
                 {
+                    b.Navigation("BookAuthors");
+
                     b.Navigation("BookDetail")
                         .IsRequired();
                 });
