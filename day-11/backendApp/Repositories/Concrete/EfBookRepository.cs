@@ -22,6 +22,8 @@ namespace Repositories.Concrete
                  .Books
                  .Include(b => b.BookDetail)    // navigation property
                  .Include(b => b.Category)      // navigation property
+                 .Include(b => b.BookAuthors)   // navigation property
+                 .ThenInclude(ba => ba.Author)
                  .ToList();
         }
 
