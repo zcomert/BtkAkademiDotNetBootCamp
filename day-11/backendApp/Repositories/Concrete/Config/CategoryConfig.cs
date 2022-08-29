@@ -44,10 +44,22 @@ namespace Repositories.Concrete.Config
         public void Configure(EntityTypeBuilder<BookDetail> builder)
         {
             builder.HasKey(bd => bd.BookDetailId);
-            #region Samples
-            // builder.HasData();
-            // TODO: BookDetail kayıtları gireceğim!
-            #endregion
+
+            builder.HasData(
+                new BookDetail()
+                {
+                    BookDetailId = 1,
+                    BookId = 1,
+                    City = "Samsun",
+                    Country = "Turkey",
+                    ISBN = "1234-5456-1234",
+                    Language = "Turkish",
+                    NumberOfPage = 100,
+                    Publisher = "Samsun University"
+                }
+            );
+
+
         }
     }
 
