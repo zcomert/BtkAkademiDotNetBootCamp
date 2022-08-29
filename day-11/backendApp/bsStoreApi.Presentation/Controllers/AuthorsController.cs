@@ -26,7 +26,7 @@ namespace bsStoreApi.Presentation.Controllers
             return Ok(_authorService.GetAllAuthors());  
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}", Name ="GetOneAuthor")]
         public IActionResult GetOneAuthor([FromRoute(Name ="id")] int id)
         {
             return Ok(_authorService.GetOneAuthor(id));
@@ -35,7 +35,8 @@ namespace bsStoreApi.Presentation.Controllers
         [HttpPost]
         public IActionResult CreateOneAuthor([FromBody] Author author)
         {
-            return Ok(_authorService.CreateOneAuthor(author));
+            _authorService.CreateOneAuthor(author);
+            return CreatedAtRoute("GetOneAuthor", new {id=author.AuthorId},author);
         }
 
         [HttpPut("{id:int}")]
