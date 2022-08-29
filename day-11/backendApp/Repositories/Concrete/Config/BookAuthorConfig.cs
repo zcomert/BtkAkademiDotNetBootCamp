@@ -21,11 +21,11 @@ namespace Repositories.Concrete.Config
                 .HasForeignKey(ba => ba.BookId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // BookAuthor - Author
-            builder.HasOne(ba => ba.Author)
-                .WithMany(a => a.BookAuthors)
-                .HasForeignKey(ba => ba.AuthorId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //// BookAuthor - Author
+            //builder.HasOne(ba => ba.Author)
+            //    .WithMany(a => a.BookAuthors)
+            //    .HasForeignKey(ba => ba.AuthorId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasData(
                 new BookAuthor() { BookAuthorId=1, BookId=1, AuthorId=1},

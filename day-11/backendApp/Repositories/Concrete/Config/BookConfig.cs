@@ -20,10 +20,10 @@ namespace Repositories.Concrete.Config
             builder.Property(b => b.Price).HasDefaultValue(10);
             builder.Property(b => b.AtCreated).HasDefaultValueSql("GETDATE()");
 
-            builder.HasOne(b => b.Category)
-                .WithMany(c => c.Books)
-                .HasForeignKey(b => b.CategoryId)
-                .OnDelete(DeleteBehavior.SetNull);
+            //builder.HasOne(b => b.Category)
+            //    .WithMany(c => c.Books)
+            //    .HasForeignKey(b => b.CategoryId)
+            //    .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasData(
                 new Book() { Id = 1, CategoryId = 1, Title = "Devlet", Price = 120, Summary = "..." },
