@@ -270,6 +270,8 @@ D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\ConsoleApp.runtime
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\ConsoleApp.dll
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\ref\ConsoleApp.dll
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\ConsoleApp.pdb
+D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\AutoMapper.dll
+D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\Humanizer.dll
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\dotnetcampw2\day-11\backendApp\ConsoleApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll

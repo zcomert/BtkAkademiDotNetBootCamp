@@ -40,7 +40,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
 
                     b.HasData(
                         new
@@ -95,7 +95,7 @@ namespace Repositories.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
 
                     b.HasData(
                         new
@@ -167,7 +167,7 @@ namespace Repositories.Migrations
                         .IsUnique()
                         .HasFilter("[BookId] IS NOT NULL");
 
-                    b.ToTable("BookDetails");
+                    b.ToTable("BookDetails", (string)null);
 
                     b.HasData(
                         new
@@ -222,7 +222,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new

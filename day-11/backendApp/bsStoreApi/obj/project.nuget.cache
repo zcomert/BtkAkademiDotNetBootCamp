@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "psbWkdlH84r3vforl0FCPf7RUCtIxHpnAekBHSz5564xkmSGPnznBQ0IGd38qII8OiFMvaR1Xg8VBpzh33/CkQ==",
+  "dgSpecHash": "2I5YxB/xGTaOcEe49qJoqLwmJBxAIDLqYQ6IjlWRXhWUScWBHy1Y9lSWt7ECZKVneDi3WHJT2laRkolkZ15S7w==",
   "success": true,
   "projectFilePath": "D:\\dotnetcampw2\\day-11\\backendApp\\bsStoreApi\\bsStoreApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\zafer\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\zafer\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\zafer\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\zafer\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
