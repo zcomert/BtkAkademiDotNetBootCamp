@@ -10,5 +10,6 @@ namespace Repositories.Contracts
     public interface IBookRepository : IEntityRepository<Book>
     {
         List<Book> GetLastestBook(int n); // n tane döneceğiz!
+        List<Book> GetAllBooksWithDetails();
     }
 }

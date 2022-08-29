@@ -56,6 +56,28 @@ namespace Repositories.Concrete.Config
                     Language = "Turkish",
                     NumberOfPage = 100,
                     Publisher = "Samsun University"
+                },
+                new BookDetail()
+                {
+                    BookDetailId = 2,
+                    BookId = 2,
+                    City = "Ankara",
+                    Country = "Turkey",
+                    ISBN = "1234-5456-7891",
+                    Language = "Turkish",
+                    NumberOfPage = 150,
+                    Publisher = "Gazi University"
+                },
+                new BookDetail()
+                {
+                    BookDetailId = 3,
+                    BookId = 3,
+                    City = "İstanbul",
+                    Country = "Turkey",
+                    ISBN = "8741-5456-1234",
+                    Language = "Turkish",
+                    NumberOfPage = 78,
+                    Publisher = "Yıldız Techincal University"
                 }
             );
 

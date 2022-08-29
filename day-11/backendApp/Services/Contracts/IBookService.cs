@@ -11,6 +11,7 @@ namespace Services.Contracts
     public interface IBookService
     {
         List<Book> GetAllBooks(Expression<Func<Book, bool>> filter=null);
+        List<Book> GetAllBooksWithDetails();
         Book GetOneBook(int id);
 
         Book CreateOneBook(Book book);

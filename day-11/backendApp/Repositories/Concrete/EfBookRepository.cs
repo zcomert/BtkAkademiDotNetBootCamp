@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,14 @@ namespace Repositories.Concrete
         public EfBookRepository(AppDbContext context) : base(context)
         {
 
+        }
+
+        public List<Book> GetAllBooksWithDetails()
+        {
+            return _context
+                 .Books
+                 .Include(b => b.BookDetail) // navigation property
+                 .ToList();
         }
 
         public List<Book> GetLastestBook(int n)

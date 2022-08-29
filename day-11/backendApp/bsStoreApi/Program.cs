@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers()
+    .AddJsonOptions(opt =>
+                opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
     .AddApplicationPart(typeof(bsStoreApi.Presentation.AssemblyReference).Assembly);
 
 

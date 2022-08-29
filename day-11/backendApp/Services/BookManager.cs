@@ -42,6 +42,11 @@ namespace Services
             return _bookRepository.GetAll(filter);
         }
 
+        public List<Book> GetAllBooksWithDetails()
+        {
+            return _bookRepository.GetAllBooksWithDetails();
+        }
+
         public List<Book> GetLastestBook(int n)
         {
             return _bookRepository.GetLastestBook(n);

@@ -23,7 +23,6 @@ namespace bsStoreApi.Presentation.Controllers
         [HttpGet]
         public IActionResult GetAllBooks()
         {
-            throw new Exception("HAATTAAA!!!");
             return Ok(_bookService.GetAllBooks());
         }
 
@@ -60,6 +59,13 @@ namespace bsStoreApi.Presentation.Controllers
         public IActionResult GetLastestBooks([FromQuery] int numberOfbooks)
         {
             return Ok(_bookService.GetLastestBook(numberOfbooks));
+        }
+
+        // ./api/books/getallbookswithdetails
+        [HttpGet("getallbookswithdetails")]
+        public IActionResult GetAllBooksWithDetails()
+        {
+            return Ok(_bookService.GetAllBooksWithDetails());
         }
 
     }

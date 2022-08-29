@@ -40,7 +40,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
@@ -90,7 +90,111 @@ namespace Repositories.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 120m,
+                            Summary = "...",
+                            Title = "Devlet"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 120m,
+                            Summary = "...",
+                            Title = "Nutuk"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AtCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 120m,
+                            Summary = "...",
+                            Title = "Vatan"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.BookDetail", b =>
+                {
+                    b.Property<int>("BookDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookDetailId"), 1L, 1);
+
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfPage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Publisher")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BookDetailId");
+
+                    b.HasIndex("BookId")
+                        .IsUnique()
+                        .HasFilter("[BookId] IS NOT NULL");
+
+                    b.ToTable("BookDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            BookDetailId = 1,
+                            BookId = 1,
+                            City = "Samsun",
+                            Country = "Turkey",
+                            ISBN = "1234-5456-1234",
+                            Language = "Turkish",
+                            NumberOfPage = 100,
+                            Publisher = "Samsun University"
+                        },
+                        new
+                        {
+                            BookDetailId = 2,
+                            BookId = 2,
+                            City = "Ankara",
+                            Country = "Turkey",
+                            ISBN = "1234-5456-7891",
+                            Language = "Turkish",
+                            NumberOfPage = 150,
+                            Publisher = "Gazi University"
+                        },
+                        new
+                        {
+                            BookDetailId = 3,
+                            BookId = 3,
+                            City = "İstanbul",
+                            Country = "Turkey",
+                            ISBN = "8741-5456-1234",
+                            Language = "Turkish",
+                            NumberOfPage = 78,
+                            Publisher = "Yıldız Techincal University"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Models.Category", b =>
@@ -110,7 +214,7 @@ namespace Repositories.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -131,6 +235,21 @@ namespace Repositories.Migrations
                             CategoryName = "Database",
                             Description = "Database description"
                         });
+                });
+
+            modelBuilder.Entity("Entities.Models.BookDetail", b =>
+                {
+                    b.HasOne("Entities.Models.Book", "Book")
+                        .WithOne("BookDetail")
+                        .HasForeignKey("Entities.Models.BookDetail", "BookId");
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Entities.Models.Book", b =>
+                {
+                    b.Navigation("BookDetail")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
