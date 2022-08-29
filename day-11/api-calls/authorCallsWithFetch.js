@@ -6,18 +6,21 @@ const getAllAuthors = () => {
 };
 
 const createOneAuthor = () => {
+
+    const methodbody = {
+        "firstName":"Ahmet",
+        "lastName":"Hakan"
+    };
+
     // post request
     return fetch("http://localhost:44299/api/authors",{
         method : 'POST',
         headers:{
             "Content-Type":"application/json"
         },
-        body:{
-            "firstName":"Ahmet",
-            "lastName":"Hakan"
-        }
+        body:JSON.stringify(methodbody)
     }).then(resp => resp.json());
 }
 
-
+createOneAuthor().then(resp => console.log(resp));
 getAllAuthors().then(resp => console.log(resp))
