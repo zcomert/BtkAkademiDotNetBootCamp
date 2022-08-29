@@ -1,6 +1,8 @@
-﻿namespace bsStoreApi
+﻿using AutoMapper;
+
+namespace bsStoreApi
 {
-    public class MappingProfile
+    public class MappingProfile : Profile
     {
     }
 }

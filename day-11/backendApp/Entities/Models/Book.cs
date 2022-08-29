@@ -22,6 +22,9 @@ namespace Entities.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        // collection navigation property
+        public ICollection<BookAuthor> BookAuthors { get; set; }
+
         public override string ToString()
         {
             return $"{Id,-5} {Title,-40} {Price,-5}";

@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSqlConnection(builder.Configuration);
 builder.Services.RegisterToIoC();
 
-
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

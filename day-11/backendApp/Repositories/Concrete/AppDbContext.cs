@@ -18,6 +18,8 @@ namespace Repositories.Concrete
 
         public DbSet<BookDetail>? BookDetails { get; set; }
 
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+
         public AppDbContext()
         {
 
