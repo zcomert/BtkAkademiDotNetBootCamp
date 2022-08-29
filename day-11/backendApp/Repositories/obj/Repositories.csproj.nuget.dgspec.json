@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\dotnetcampw2\\day-11\\backendApp\\Entities\\Entities.csproj",
         "projectName": "Entities",
         "projectPath": "D:\\dotnetcampw2\\day-11\\backendApp\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Zafer Cömert\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\zafer\\.nuget\\packages\\",
         "outputPath": "D:\\dotnetcampw2\\day-11\\backendApp\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zafer Cömert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,11 +64,11 @@
         "projectUniqueName": "D:\\dotnetcampw2\\day-11\\backendApp\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
         "projectPath": "D:\\dotnetcampw2\\day-11\\backendApp\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\Zafer Cömert\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\zafer\\.nuget\\packages\\",
         "outputPath": "D:\\dotnetcampw2\\day-11\\backendApp\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zafer Cömert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

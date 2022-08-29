@@ -2,7 +2,7 @@
 
 namespace Repositories.Contracts
 {
-    public interface IBookDetail : IEntityRepository<BookDetail>
+    public interface IBookDetailRepository : IEntityRepository<BookDetail>
     {
 
     }

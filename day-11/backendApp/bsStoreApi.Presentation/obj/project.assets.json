@@ -5220,7 +5220,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zafer Cömert\\.nuget\\packages\\": {}
+    "C:\\Users\\zafer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5228,11 +5228,11 @@
       "projectUniqueName": "D:\\dotnetcampw2\\day-11\\backendApp\\bsStoreApi.Presentation\\bsStoreApi.Presentation.csproj",
       "projectName": "bsStoreApi.Presentation",
       "projectPath": "D:\\dotnetcampw2\\day-11\\backendApp\\bsStoreApi.Presentation\\bsStoreApi.Presentation.csproj",
-      "packagesPath": "C:\\Users\\Zafer Cömert\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\zafer\\.nuget\\packages\\",
       "outputPath": "D:\\dotnetcampw2\\day-11\\backendApp\\bsStoreApi.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zafer Cömert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
