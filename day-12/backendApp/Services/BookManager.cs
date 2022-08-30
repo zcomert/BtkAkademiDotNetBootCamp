@@ -30,7 +30,9 @@ namespace Services
             {
                 throw new ArgumentNullException();
             }
-
+            
+            var book = _mapper.Map<Book>(bookDto);
+            
             _bookRepository.Add(book);
             return book;
         }
