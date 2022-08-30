@@ -1,9 +1,13 @@
-import { OPEN_SNACKBAR, SET_THEME } from "../actions/appActions";
+import {
+  CLOSE_SNACKBAR,
+  OPEN_SNACKBAR,
+  SET_THEME,
+} from "../actions/appActions";
 import { theme, snackbar } from "../initials/appItems";
 
 const initialValue = {
   theme,
-  snackbar
+  snackbar,
 };
 
 export function appReducer(state = initialValue, { type, payload }) {
@@ -14,14 +18,23 @@ export function appReducer(state = initialValue, { type, payload }) {
         theme: payload,
       };
     case OPEN_SNACKBAR:
-      return{
+      return {
         ...state,
-        snackbar:{
-          isOpen : true,
+        snackbar: {
+          open: true,
           message: payload.message,
-          severity: payload.severity
-        }
-      }
+          severity: payload.severity,
+        },
+      };
+    case CLOSE_SNACKBAR:
+      return {
+        ...state,
+        snackbar: {
+          open: false,
+          message: "",
+        },
+      };
+
     default:
       return {
         ...state,
