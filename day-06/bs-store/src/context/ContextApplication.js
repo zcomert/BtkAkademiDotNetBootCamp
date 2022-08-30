@@ -18,7 +18,9 @@ export const AppContextProvider = ({ children }) => {
     });
 
   useEffect(() => {
-     
+     bookService
+     .getAllBooksWithDetails()
+     .then(resp => setBooks(resp));
   },[])
 
   const values = {
