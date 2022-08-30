@@ -20,6 +20,8 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AppContext from "../../context/ContextApplication";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import axios from "axios";
+import BookService from "../../services/bookService";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,14 +35,14 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Book({ book }) {
+  const bookService = new BookService();
   const { setBooks, books } = React.useContext(AppContext);
 
   const navigate = useNavigate();
   const [expanded, setExpanded] = React.useState(false);
 
- 
-
   const removeBook = (id) => {
+    bookService.deleteOneBook(id);
     setBooks(books.filter((book) => book.id !== id));
   };
 
