@@ -1,10 +1,14 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import data from "../data";
+import BookService from "../services/bookService";
 
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
+
+  const bookService = new BookService();
+
     const [books, setBooks] = useState([]);
     const [isLogin, setIsLogin] = useState(false);
     const [snackbar, setSnackbar] = useState({
@@ -14,11 +18,7 @@ export const AppContextProvider = ({ children }) => {
     });
 
   useEffect(() => {
-    const url = "http://localhost:44299/api/books/getallbookswithdetails";
-
-    axios
-    .get(url)
-    .then(resp => setBooks(resp.data));
+     
   },[])
 
   const values = {

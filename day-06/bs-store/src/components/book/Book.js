@@ -20,6 +20,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AppContext from "../../context/ContextApplication";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import axios from "axios";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -41,6 +42,7 @@ export default function Book({ book }) {
  
 
   const removeBook = (id) => {
+    axios.delete(`http://localhost:44299/api/books/${id}`);
     setBooks(books.filter((book) => book.id !== id));
   };
 
