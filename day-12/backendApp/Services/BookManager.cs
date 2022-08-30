@@ -16,11 +16,15 @@ namespace Services
     public class BookManager : IBookService
     {
         private readonly IBookRepository _bookRepository;
+        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
 
-        public BookManager(IBookRepository bookRepository, IMapper mapper)
+        public BookManager(IBookRepository bookRepository, 
+            ICategoryService categoryService, 
+            IMapper mapper)
         {
             _bookRepository = bookRepository;
+            _categoryService = categoryService;
             _mapper = mapper;
         }
 
@@ -30,6 +34,8 @@ namespace Services
             {
                 throw new ArgumentNullException();
             }
+
+            _categoryService.GetOneCategory(bookDto.CategoryId);
             
             var book = _mapper.Map<Book>(bookDto);
             

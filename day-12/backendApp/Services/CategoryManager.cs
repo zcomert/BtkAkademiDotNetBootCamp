@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -45,7 +46,7 @@ namespace Services
             var category = _categoryRepository.Get(c => c.CategoryId == categoryId);
             if(category is null)
             {
-                throw new Exception("Category could not found.");
+                throw new CategoryNotFoundException(categoryId);
             }
             return category;
         }
