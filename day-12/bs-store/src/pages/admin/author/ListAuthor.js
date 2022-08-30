@@ -31,7 +31,7 @@ export default function ListAuthor() {
               <TableCell>Image</TableCell>
               <TableCell>First Name</TableCell>
               <TableCell>Last Name</TableCell>
-              <TableCell></TableCell>
+              <TableCell align="right">Operations</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
