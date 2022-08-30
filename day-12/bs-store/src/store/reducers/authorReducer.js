@@ -1,4 +1,4 @@
-import { GETALL_AUTHORS } from "../actions/authorActions";
+import { DELETE_ONE_AUTHOR, GETALL_AUTHORS } from "../actions/authorActions";
 import { authors } from "../initials/authorItems";
 
 const initialVales = {
@@ -11,6 +11,11 @@ export default function authorReducer(state = initialVales, { type, payload }) {
         ...state, // author
         authors: payload,
       };
+    case DELETE_ONE_AUTHOR:
+      return{
+        ...state,
+        authors : state.authors.filter(a => a.authorId!==payload)
+      }
     default:
       return {
         ...state,

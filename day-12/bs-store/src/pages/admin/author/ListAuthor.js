@@ -12,11 +12,15 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAuthors } from "../../../store/actions/authorActions";
+import { deleteOneAuthor, getAllAuthors } from "../../../store/actions/authorActions";
 
 export default function ListAuthor() {
   const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+
+  const handleRemoveAuthor = (id) => {
+    dispatch(deleteOneAuthor(id));
+  }
 
   useEffect(() => {
     dispatch(getAllAuthors());
@@ -48,7 +52,7 @@ export default function ListAuthor() {
                 <TableCell align="right">
                   <ButtonGroup orientation="vertical">
                     <Button>Update</Button>
-                    <Button>Remove</Button>
+                    <Button onClick={() => handleRemoveAuthor(author.authorId)} >Remove</Button>
                   </ButtonGroup>
                 </TableCell>
               </TableRow>

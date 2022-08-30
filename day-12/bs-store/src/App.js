@@ -17,6 +17,7 @@ import { Alert, Snackbar, Stack } from "@mui/material";
 import ListAuthor from "./pages/admin/author/ListAuthor";
 import AddAuthor from "./pages/admin/author/AddAuthor";
 import UpdateAuthor from "./pages/admin/author/UpdateAuthor";
+import SimpleSnackBar from "./components/snackBar/SimpleSnackBar";
 
 function App() {
   const { snackbar, setSnackbar } = useContext(AppContext);
@@ -50,21 +51,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar
-          open={snackbar.isOpen}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          <Alert
-            onClose={handleClose}
-            severity={snackbar.severity}
-            sx={{ width: "100%" }}
-          >
-            {snackbar.message}
-          </Alert>
-        </Snackbar>
-      </Stack>
+      <SimpleSnackBar />
     </>
   );
 }
