@@ -15,7 +15,10 @@ export const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     const url = "http://localhost:44299/api/books/getallbookswithdetails";
-    axios.get(url).then(resp => setBooks(resp.data));
+
+    axios
+    .get(url)
+    .then(resp => setBooks(resp.data));
   },[])
 
   const values = {

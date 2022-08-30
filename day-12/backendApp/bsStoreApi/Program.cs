@@ -16,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSqlConnection(builder.Configuration);
 builder.Services.RegisterToIoC();
+builder.Services.ConfigureCors();
 
 builder.Services.AddAutoMapper(typeof(Program)); // IoC : Register : Resolve : Dispose
 
@@ -28,10 +29,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.ConfigureExceptionHandler();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 app.Run();
