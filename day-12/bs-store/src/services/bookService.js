@@ -2,7 +2,7 @@ import axios from "axios";
 
 class BookService {
   constructor() {
-    this.baseUrl = `${process.env.RECAT_APP_BASEURL}/books`;
+    this.baseUrl = `${process.env.REACT_APP_BASEURL}/books`;
   }
 
   async getAllBooks() {

@@ -14,6 +14,9 @@ import AppContext from "./context/ContextApplication";
 import Footer from "./components/footer/Footer";
 import styles from "./App.module.css";
 import { Alert, Snackbar, Stack } from "@mui/material";
+import ListAuthor from "./pages/admin/author/ListAuthor";
+import AddAuthor from "./pages/admin/author/AddAuthor";
+import UpdateAuthor from "./pages/admin/author/UpdateAuthor";
 
 function App() {
   const { snackbar, setSnackbar } = useContext(AppContext);
@@ -33,6 +36,10 @@ function App() {
       <SimpleAppbar />
       <main className={styles.container}>
         <Routes>
+          <Route path="/admin/authors/list" element={<ListAuthor />} />
+          <Route path="/admin/authors/add" element={<AddAuthor />} />
+          <Route path="/admin/authors/update/:id" element={<UpdateAuthor />} />
+
           <Route path='/books/list' element={<BookList />} />
           <Route path='/books/details/:id' element={<BookDetails />} />
           <Route path='/books/add' element={<BookAdd />} />

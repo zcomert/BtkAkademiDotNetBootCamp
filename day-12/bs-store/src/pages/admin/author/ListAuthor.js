@@ -1,10 +1,14 @@
-import { Container } from '@mui/material'
-import React from 'react'
+import { Container } from "@mui/material";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAuthors } from "../../../store/actions/authorActions";
 
 export default function ListAuthor() {
-  return (
-    <Container maxWidth="md">
-      
-    </Container>
-  )
+  const { authors } = useSelector((state) => state.author);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllAuthors());
+  }, []);
+  return <Container maxWidth='md'>{authors?.length}</Container>;
 }
