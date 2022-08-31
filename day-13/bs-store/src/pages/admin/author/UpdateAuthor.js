@@ -2,6 +2,7 @@ import { Button, Stack, TextField, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import SimpleFab from "../../../components/fab/SimpleFab";
 import AuthorService from "../../../services/authorService";
@@ -10,6 +11,7 @@ export default function UpdateAuthor() {
   
   const { id } = useParams();
   const authorService = new AuthorService();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     authorService.getOneAuthor(id).then((resp) => {
@@ -23,7 +25,7 @@ export default function UpdateAuthor() {
       lastName : ''
     },
     onSubmit : () => {
-      console.log(values);
+      dispatch("")
     }
   });
  
