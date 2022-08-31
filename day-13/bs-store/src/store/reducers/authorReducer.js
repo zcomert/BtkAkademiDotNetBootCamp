@@ -1,8 +1,9 @@
-import { CREATE_ONE_AUTHOR, DELETE_ONE_AUTHOR, GETALL_AUTHORS } from "../actions/authorActions";
-import { authors } from "../initials/authorItems";
+import { CREATE_ONE_AUTHOR, DELETE_ONE_AUTHOR, GETALL_AUTHORS, GET_ONE_AUTHOR } from "../actions/authorActions";
+import { authors,author } from "../initials/authorItems";
 
 const initialVales = {
-  authors
+  authors,
+  author
 };
 export default function authorReducer(state = initialVales, { type, payload }) {
   switch (type) {
@@ -16,6 +17,11 @@ export default function authorReducer(state = initialVales, { type, payload }) {
         ...state, // author
         authors: payload,
       };
+    case GET_ONE_AUTHOR:
+      return{
+        ...state,
+        author : payload
+      }
     case DELETE_ONE_AUTHOR:
       return{
         ...state,
