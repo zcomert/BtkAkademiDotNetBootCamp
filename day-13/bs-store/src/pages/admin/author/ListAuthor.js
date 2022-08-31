@@ -19,10 +19,12 @@ import {
 
 import { openSnackbar } from "../../../store/actions/appActions";
 import SimpleFab from "../../../components/fab/SimpleFab";
+import { useNavigate } from "react-router-dom";
 
 export default function ListAuthor() {
   const { authors } = useSelector((state) => state.author);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemoveAuthor = (id) => {
     dispatch(deleteOneAuthor(id));
@@ -65,7 +67,7 @@ export default function ListAuthor() {
                 <TableCell>{author.lastName}</TableCell>
                 <TableCell align='right'>
                   <ButtonGroup orientation='vertical'>
-                    <Button>Update</Button>
+                    <Button onClick={() => {navigate(`/admin/authors/update/${author.authorId}`)}}>Update</Button>
                     <Button onClick={() => handleRemoveAuthor(author.authorId)}>
                       Remove
                     </Button>
