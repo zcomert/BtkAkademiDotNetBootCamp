@@ -1,7 +1,7 @@
 export const theme = 'theme1';
 export const snackbar = {
     open : false,
-    message:'Selam..',
+    message:'',
     severity:'success'
 }
 export const isLoading = false;
