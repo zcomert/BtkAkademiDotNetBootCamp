@@ -1,5 +1,5 @@
 import { Container, Fab, Grid, List, Typography } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+
 import React, { useContext, useEffect } from "react";
 import Book from "../book/Book";
 import BookAdd from "../book/BookAdd";
@@ -21,29 +21,11 @@ export default function BookList() {
   },[]);
  
   const navigate = useNavigate();
-  const fabStyle = {
-    position: "fixed",
-    bottom: 16,
-    right: 16,
-  };
-
-  const fab = {
-    color: "error",
-    sx: fabStyle,
-    icon: <AddIcon />,
-    label: "Add",
-  };
+  
 
   return (
     <Container sx={{ mt: 3 }} maxWidth='md'>
-      <Fab
-        onClick={() => navigate("/books/add")}
-        sx={fab.sx}
-        color={fab.color}
-        aria-label='add'
-      >
-        {fab.icon}
-      </Fab>
+     
 
       <Typography align='center' variant='h5' gutterBottom></Typography>
 

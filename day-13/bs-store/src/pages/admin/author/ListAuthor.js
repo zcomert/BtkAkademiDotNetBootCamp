@@ -18,6 +18,7 @@ import {
 } from "../../../store/actions/authorActions";
 
 import { openSnackbar } from "../../../store/actions/appActions";
+import SimpleFab from "../../../components/fab/SimpleFab";
 
 export default function ListAuthor() {
   const { authors } = useSelector((state) => state.author);
@@ -38,6 +39,7 @@ export default function ListAuthor() {
   }, []);
   return (
     <Container maxWidth='md'>
+      <SimpleFab url="/admin/authors/add" />
       <TableContainer>
         <Table>
           <TableHead>
