@@ -1,6 +1,7 @@
 import AuthorService from "../../services/authorService";
 export const GETALL_AUTHORS = "GETALL_AUTHORS";
 export const DELETE_ONE_AUTHOR = "DELETE_ONE_AUTHOR";
+export const CREATE_ONE_AUTHOR = "CREATE_ONE_AUTHOR"; // action - reducer
 
 const authorService = new AuthorService();
 
@@ -18,4 +19,12 @@ export function deleteOneAuthor(id) {
       .deleteOneAuthor(id)
       .then((resp) => dispatch({ type: DELETE_ONE_AUTHOR, payload: id }));
   };
+}
+
+export function createOneAuthor(author){
+  return function(dispatch){
+    authorService
+    .createOneAuthor(author)
+    .then(resp => dispatch({type:CREATE_ONE_AUTHOR, payload:resp}));
+  }
 }
