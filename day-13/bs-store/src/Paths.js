@@ -9,7 +9,6 @@ import BookAdd from "./components/book/BookAdd";
 
 import Home from "./pages/home/Home";
 
-import Counter from "./Counter";
 import BookList from "./components/bookList/BookList";
 import Search from "./components/search/Search";
 import Login from "./components/login/Login";

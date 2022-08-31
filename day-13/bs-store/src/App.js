@@ -11,10 +11,12 @@ import { Alert, Snackbar, Stack } from "@mui/material";
 
 import SimpleSnackBar from "./components/snackBar/SimpleSnackBar";
 import Paths from "./Paths";
+import Loading from "./components/progress/Loading";
 
 function App() {
   return (
     <>
+      <Loading />
       <SimpleAppbar />
       <main className={styles.container}>
         <Paths />
