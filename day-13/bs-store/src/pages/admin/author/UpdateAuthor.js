@@ -3,15 +3,18 @@ import { Container } from "@mui/system";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SimpleFab from "../../../components/fab/SimpleFab";
 import AuthorService from "../../../services/authorService";
+import { openSnackbar } from "../../../store/actions/appActions";
+import { updateOneAuthor } from "../../../store/actions/authorActions";
 
 export default function UpdateAuthor() {
   
   const { id } = useParams();
   const authorService = new AuthorService();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     authorService.getOneAuthor(id).then((resp) => {
@@ -24,8 +27,13 @@ export default function UpdateAuthor() {
       firstName : '',
       lastName : ''
     },
-    onSubmit : () => {
-      dispatch("")
+    onSubmit : (values) => {
+      dispatch(updateOneAuthor(id,values));
+      dispatch(openSnackbar({
+        message:`Author ${values.firstName} ${values.lastName} has been updated.`,
+        severity:'success'
+      }));
+      navigate("/admin/authors/list");
     }
   });
  
