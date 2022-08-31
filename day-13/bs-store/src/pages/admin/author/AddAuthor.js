@@ -2,18 +2,34 @@ import { Button, Container, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useFormik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import SimpleFab from "../../../components/fab/SimpleFab";
 
-export default function AddAuthor() {
+import { createOneAuthor } from "../../../store/actions/authorActions";
 
-  const {handleSubmit, handleChange, values} = useFormik({
-    initialValues:{
-      firstName : '',
-      lastName : ''
+import {openSnackbar} from "../../../store/actions/appActions";
+import { useNavigate } from "react-router-dom";
+
+export default function AddAuthor() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { handleSubmit, handleChange, values } = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
     },
-    onSubmit : (values) => {
-      console.log(values)
-    }
+    onSubmit: (values) => {
+      console.log(values);
+      dispatch(createOneAuthor(values));
+      dispatch(
+        openSnackbar({
+          message: "Author has been added.",
+          severity: "success",
+        })
+      );
+      navigate("/admin/authors/list");
+    },
   });
 
   return (
@@ -37,7 +53,9 @@ export default function AddAuthor() {
             label='Lastname'
             fullWidth
           ></TextField>
-          <Button variant="contained" type="submit">Save</Button>
+          <Button variant='contained' type='submit'>
+            Save
+          </Button>
           {JSON.stringify(values)}
         </Stack>
       </form>
