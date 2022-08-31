@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication";
 
 export default function BookList() {
-  const { books } = useContext(AppContext);
+ 
   const navigate = useNavigate();
   const fabStyle = {
     position: "fixed",

@@ -16,8 +16,8 @@ import Loading from "./components/progress/Loading";
 function App() {
   return (
     <>
-      <Loading />
       <SimpleAppbar />
+      <Loading />
       <main className={styles.container}>
         <Paths />
       </main>

@@ -4,4 +4,4 @@ export const snackbar = {
     message:'',
     severity:'success'
 }
-export const isLoading = false;
+export const isLoaded = false;
