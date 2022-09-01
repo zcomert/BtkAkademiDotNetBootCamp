@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import SimpleFab from "../../../components/fab/SimpleFab";
 import { createOneCategory } from "../../../store/actions/categoryActions";
 import { openSnackbar} from "../../../store/actions/appActions";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCategory() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {handleSubmit, handleChange, values} = useFormik({
     initialValues : {
       categoryName:'',
@@ -20,6 +22,7 @@ export default function AddCategory() {
         message: `${values.categoryName} has been created.`,
         severity: 'success'
       }));
+      navigate("/admin/categories/list");
     }
   });
   return (
@@ -36,6 +39,7 @@ export default function AddCategory() {
           ></TextField>
           <TextField
             id='description'
+            multiline
             name='description'
             fullWidth
             onChange={handleChange}
