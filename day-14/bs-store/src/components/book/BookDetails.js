@@ -11,6 +11,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import {getOneBookWithDetails} from "../../store/actions/bookActions";
+import BookDetailTable from "./BookDetailTable";
 
 export default function BookDetails() {
   const {book} = useSelector(state => state.book);
@@ -47,6 +48,9 @@ export default function BookDetails() {
           <Typography sx={{ color: "#f00" }} variant='h5'>
             $ {book?.price}
           </Typography>
+
+          <BookDetailTable bookDetail={book?.bookDetail} />
+
         </Grid>
       </Grid>
     </Container>
