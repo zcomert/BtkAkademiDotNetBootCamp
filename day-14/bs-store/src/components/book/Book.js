@@ -22,6 +22,8 @@ import AppContext from "../../context/ContextApplication";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 import BookService from "../../services/bookService";
+import { useDispatch } from "react-redux";
+import {addToCart} from "../../store/actions/cartActions";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -35,6 +37,12 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Book({ book }) {
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (cartItem) => {
+    dispatch(addToCart(cartItem));
+  }
+
   const bookService = new BookService();
   const { setBooks, books } = React.useContext(AppContext);
 
@@ -77,7 +85,7 @@ export default function Book({ book }) {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label='add to favorites'>
+          <IconButton onClick={() => handleAddToCart(book)} aria-label='add to favorites'>
             <AddShoppingCartIcon />
           </IconButton>
           <IconButton onClick={() => removeBook(book.id)} aria-label='share'>

@@ -15,6 +15,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { Badge } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const settings = ["Profile", "Account", "Dashboard"];
 const pages = [
@@ -42,6 +44,7 @@ const pages = [
 
 const SimpleAppbar = () => {
   const navigate = useNavigate();
+  const {cart} = useSelector(state => state.cart);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { isLogin, setIsLogin } = React.useContext(AppContext);
@@ -160,8 +163,10 @@ const SimpleAppbar = () => {
                 </Button>
               ))}
             </Box>
-
+            <Badge badgeContent={cart.length} color="secondary">
             <ShoppingBasketIcon />
+
+            </Badge>
             {isLogin && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title='Open settings'>
