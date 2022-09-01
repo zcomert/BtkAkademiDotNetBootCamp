@@ -7,11 +7,12 @@ import SimpleFab from "../../../components/fab/SimpleFab";
 import { createOneCategory } from "../../../store/actions/categoryActions";
 import { openSnackbar} from "../../../store/actions/appActions";
 import { useNavigate } from "react-router-dom";
+import { validationSchema } from "./validationSchema";
 
 export default function AddCategory() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {handleSubmit, handleChange, values} = useFormik({
+  const {handleSubmit, handleChange, values, errors, touched, handleBlur} = useFormik({
     initialValues : {
       categoryName:'',
       description:''
@@ -23,7 +24,8 @@ export default function AddCategory() {
         severity: 'success'
       }));
       navigate("/admin/categories/list");
-    }
+    },
+    validationSchema
   });
   return (
     <Container maxWidth='md'>
@@ -33,10 +35,16 @@ export default function AddCategory() {
           <TextField
             id='categoryName'
             name='categoryName'
+            error = {errors.categoryName && touched.categoryName}
             onChange={handleChange}
+            onBlur={handleBlur}
             fullWidth
             label='Category name'
+            helperText = {errors.categoryName && touched.categoryName ? errors.categoryName : ""}
           ></TextField>
+
+           
+
           <TextField
             id='description'
             multiline
