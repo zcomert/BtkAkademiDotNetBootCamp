@@ -15,7 +15,7 @@ class BookService {
   }
 
   async getOneBookWithDetails(id) {
-    const url = `${this.baseUrl}/getallbookswithdetails/${id}`;
+    const url = `${this.baseUrl}/getonebookwithdetails/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
 

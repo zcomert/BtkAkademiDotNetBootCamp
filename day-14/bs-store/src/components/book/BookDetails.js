@@ -27,7 +27,7 @@ export default function BookDetails() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
           <Stack spacing={2}>
-            <img src={`/books/${id}.jpg`} alt={book.title} />
+            <img src={`/books/${id}.jpg`} alt={book?.title} />
             <ButtonGroup variant='outlined'>
               <Button
                 
@@ -40,12 +40,12 @@ export default function BookDetails() {
           </Stack>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Typography variant='h4'>{book.title}</Typography>
+          <Typography variant='h4'>{book?.title}</Typography>
           <Typography sx={{ padding: 5 }} variant='body1'>
-            "{book.summary}"
+            "{book?.summary}"
           </Typography>
           <Typography sx={{ color: "#f00" }} variant='h5'>
-            $ {book.price}
+            $ {book?.price}
           </Typography>
         </Grid>
       </Grid>
