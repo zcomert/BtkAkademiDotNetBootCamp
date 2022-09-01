@@ -1,4 +1,6 @@
 import {
+    Button,
+    ButtonGroup,
   Container,
   Table,
   TableBody,
@@ -11,6 +13,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../../store/actions/categoryActions";
 
+import SimpleFab from "../../../components/fab/SimpleFab";
+
 export default function ListCategory() {
   const { categories } = useSelector((state) => state.category);
   const dispatch = useDispatch();
@@ -21,6 +25,7 @@ export default function ListCategory() {
 
   return (
     <Container maxWidth='md'>
+        <SimpleFab url="/admin/categories/add" />
       <TableContainer>
         <Table>
           <TableHead>
@@ -35,9 +40,14 @@ export default function ListCategory() {
             {categories?.map((c) => (
               <TableRow>
                 <TableCell>{c.categoryId}</TableCell>
-                <TableCell>Category Name</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Operations</TableCell>
+                <TableCell>{c.categoryName}</TableCell>
+                <TableCell>{c.description}</TableCell>
+                <TableCell>
+                    <ButtonGroup orientation="vertical" >
+                        <Button>Update</Button>
+                        <Button>Delete</Button>
+                    </ButtonGroup>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
