@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import {getOneBookWithDetails} from "../../store/actions/bookActions";
 import AuthorGroup from "./AuthorGroup";
+import AuthorList from "./AuthorList";
 import BookDetailTable from "./BookDetailTable";
 
 export default function BookDetails() {
@@ -40,12 +41,14 @@ export default function BookDetails() {
               <Button>Add Cart</Button>
             </ButtonGroup>
           </Stack>
+
+          <AuthorList bookAuthors={book?.bookAuthors} />
         </Grid>
         <Grid item xs={12} md={8}>
           <AuthorGroup bookAuthors = {book?.bookAuthors} />
           <Typography variant='h2'>{book?.title}</Typography>
-          <Typography variant='h4'>{book?.category.categoryName}</Typography>
-          <Typography variant='caption'>{book?.category.description}</Typography>
+          <Typography variant='h4'>{book?.category?.categoryName}</Typography>
+          <Typography variant='caption'>{book?.category?.description}</Typography>
 
           <Typography sx={{ padding: 5 }} variant='body1'>
             "{book?.summary}"
