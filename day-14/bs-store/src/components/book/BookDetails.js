@@ -7,24 +7,19 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import AppContext from "../../context/ContextApplication"
+import {getOneBookWithDetails} from "../../store/actions/bookActions";
 
 export default function BookDetails() {
-  // const {book} = useSelector(state => state.book);
+  const {book} = useSelector(state => state.book);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const initial = {
-    id: 0,
-    title: "",
-    price: 0,
-    summary: "",
-  };
-  const [book, setBook] = useState(initial);
 
   useEffect(() => {
-    setBook(books.find((book) => book.id === parseInt(id)) || initial);
+    dispatch(getOneBookWithDetails(id));
   }, []);
 
   return (
