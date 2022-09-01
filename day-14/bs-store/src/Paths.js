@@ -13,6 +13,9 @@ import BookList from "./components/bookList/BookList";
 import Search from "./components/search/Search";
 import Login from "./components/login/Login";
 import Contact from "./components/contact/Contact";
+import ListCategory from "./pages/admin/category/ListCategory";
+import AddCategory from "./pages/admin/category/AddCategory";
+import UpdateCategory from "./pages/admin/category/UpdateCategory";
 
 export default function Paths() {
   return (
@@ -20,6 +23,10 @@ export default function Paths() {
       <Route path='/admin/authors/list' element={<ListAuthor />} />
       <Route path='/admin/authors/add' element={<AddAuthor />} />
       <Route path='/admin/authors/update/:id' element={<UpdateAuthor />} />
+
+      <Route path="/admin/categories/list" element={<ListCategory />} />
+      <Route path="/admin/categories/add" element={<AddCategory />} />
+      <Route path="/admin/categories/update/:id" element={<UpdateCategory />} />
 
       <Route path='/books/list' element={<BookList />} />
       <Route path='/books/details/:id' element={<BookDetails />} />

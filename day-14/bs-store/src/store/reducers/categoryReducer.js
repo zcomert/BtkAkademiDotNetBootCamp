@@ -12,7 +12,7 @@ const init = {
   category,
 };
 
-export function categoryReducer(state = init, { type, payload }) {
+export default function categoryReducer(state = init, { type, payload }) {
   switch (type) {
     case GETALL_CATEGORIES:
       return {
