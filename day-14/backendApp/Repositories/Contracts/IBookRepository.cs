@@ -11,5 +11,6 @@ namespace Repositories.Contracts
     {
         List<Book> GetLastestBook(int n); // n tane döneceğiz!
         List<Book> GetAllBooksWithDetails();
+        Book GetOneBookWithDetails(int id);
     }
 }

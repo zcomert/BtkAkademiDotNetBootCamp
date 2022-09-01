@@ -35,5 +35,18 @@ namespace Repositories.Concrete
                 .Take(n)
                 .ToList(); 
         }
+
+        public Book GetOneBookWithDetails(int id)
+        {
+            return _context
+                .Books
+                .Include(b => b.BookDetail)    // navigation property
+                .Include(b => b.Category)      // navigation property
+                .Include(b => b.BookAuthors)   // navigation property
+                .ThenInclude(ba => ba.Author)
+                .ToList()
+                .Where(b => b.Id == id)
+                .SingleOrDefault();
+        }
     }
 }
