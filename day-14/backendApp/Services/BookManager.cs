@@ -74,6 +74,11 @@ namespace Services
             return book;
         }
 
+        public Book GetOneBookWithDetails(int id)
+        {
+            return _bookRepository.GetOneBookWithDetails(id);
+        }
+
         public Book UpdateOneBook(int id, Book book)
         {
             if(book.Id != id)

@@ -12,7 +12,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication"
 
 export default function BookDetails() {
-  const {books} = useContext(AppContext);
+  // const {book} = useSelector(state => state.book);
   const navigate = useNavigate();
   const { id } = useParams();
   const initial = {

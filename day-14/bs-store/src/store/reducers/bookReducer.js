@@ -1,8 +1,9 @@
-import { GETALL_BOOKS } from "../actions/bookActions";
-import {books} from "../initials/bookItems";
+import { GETALL_BOOKS, GET_ONE_BOOK_WITH_DETAILS } from "../actions/bookActions";
+import {books, book} from "../initials/bookItems";
 
 const initialValue = {
-    books
+    books,
+    book
 }
 
 export default function bookReducer(state=initialValue,{type,payload}){
@@ -11,6 +12,11 @@ export default function bookReducer(state=initialValue,{type,payload}){
             return {
                 ...state,
                 books : payload
+            }
+        case GET_ONE_BOOK_WITH_DETAILS:
+            return{
+                ...state,
+                book : payload
             }
         default:
            return{

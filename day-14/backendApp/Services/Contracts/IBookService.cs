@@ -13,6 +13,7 @@ namespace Services.Contracts
     {
         List<Book> GetAllBooks(Expression<Func<Book, bool>> filter=null);
         List<Book> GetAllBooksWithDetails();
+        Book GetOneBookWithDetails(int id);
         Book GetOneBook(int id);
 
         Book CreateOneBook(BookDtoForInsertion bookDto);
@@ -20,5 +21,7 @@ namespace Services.Contracts
         void DeleteOneBook(int id);
 
         List<Book> GetLastestBook(int n);
+
+        
     }
 }

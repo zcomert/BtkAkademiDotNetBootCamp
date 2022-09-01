@@ -69,5 +69,11 @@ namespace bsStoreApi.Presentation.Controllers
             return Ok(_bookService.GetAllBooksWithDetails());
         }
 
+        [HttpGet("getonebookswithdetails/{id:int}")]
+        public IActionResult GetOneBookWithDetails([FromRoute(Name ="id")]int id)
+        {
+            return Ok(_bookService.GetOneBookWithDetails(id));
+        }
+
     }
 }
