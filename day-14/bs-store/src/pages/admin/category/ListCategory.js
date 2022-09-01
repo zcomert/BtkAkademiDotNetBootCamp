@@ -1,6 +1,6 @@
 import {
-    Button,
-    ButtonGroup,
+  Button,
+  ButtonGroup,
   Container,
   Table,
   TableBody,
@@ -11,13 +11,27 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategories } from "../../../store/actions/categoryActions";
+import {
+  getAllCategories,
+  deleteOneCategory,
+} from "../../../store/actions/categoryActions";
 
 import SimpleFab from "../../../components/fab/SimpleFab";
+import {openSnackbar} from "../../../store/actions/appActions";
 
 export default function ListCategory() {
   const { categories } = useSelector((state) => state.category);
   const dispatch = useDispatch();
+
+  const handleDeleteOneCategory = (id) => {
+    dispatch(deleteOneCategory(id));
+    dispatch(
+      openSnackbar({
+        message: "Category has been removed.",
+        severity: "success",
+      })
+    );
+  };
 
   useEffect(() => {
     dispatch(getAllCategories());
@@ -25,7 +39,7 @@ export default function ListCategory() {
 
   return (
     <Container maxWidth='md'>
-        <SimpleFab url="/admin/categories/add" />
+      <SimpleFab url='/admin/categories/add' />
       <TableContainer>
         <Table>
           <TableHead>
@@ -43,10 +57,10 @@ export default function ListCategory() {
                 <TableCell>{c.categoryName}</TableCell>
                 <TableCell>{c.description}</TableCell>
                 <TableCell>
-                    <ButtonGroup orientation="vertical" >
-                        <Button>Update</Button>
-                        <Button>Delete</Button>
-                    </ButtonGroup>
+                  <ButtonGroup orientation='vertical'>
+                    <Button>Update</Button>
+                    <Button onClick={() => handleDeleteOneCategory(c.categoryId)} >Delete</Button>
+                  </ButtonGroup>
                 </TableCell>
               </TableRow>
             ))}

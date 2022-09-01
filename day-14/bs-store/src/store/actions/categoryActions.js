@@ -44,6 +44,6 @@ export function deleteOneCategory(id) {
   return function (dispatch) {
     categoryService
       .deleteOneCategory(id)
-      .then((resp) => dispatch({ type: DELETE_ONE_CATEGORY, payload: resp }));
+      .then((resp) => dispatch({ type: DELETE_ONE_CATEGORY, payload: id }));
   };
 }
