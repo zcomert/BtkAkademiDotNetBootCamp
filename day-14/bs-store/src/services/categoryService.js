@@ -9,7 +9,7 @@ class CategoryService {
         return await axios.get(this.baseUrl).then(resp => resp.data);
     }
 
-    async getOneCategories(id){
+    async getOneCategory(id){
         const url = `${this.baseUrl}/${id}`;
         return await axios.get(url).then(resp => resp.data);
     }
