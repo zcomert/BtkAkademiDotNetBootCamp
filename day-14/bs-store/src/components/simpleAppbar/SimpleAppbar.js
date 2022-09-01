@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../../context/ContextApplication";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const settings = ["Profile", "Account", "Dashboard"];
 const pages = [
@@ -160,6 +161,7 @@ const SimpleAppbar = () => {
               ))}
             </Box>
 
+            <ShoppingBasketIcon />
             {isLogin && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title='Open settings'>
