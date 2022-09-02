@@ -40,6 +40,8 @@ namespace bsStoreApi.Extensions
             
             services.AddScoped<IAuthorRepository, EfAuthorRepository>();
             services.AddScoped<IAuthorService, AuthorManager>();
+
+            services.AddScoped<IAuthService, AuthenticationManager>();
         }
 
         public static void ConfigureIdentity(this IServiceCollection services)
