@@ -563,6 +563,7 @@ D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\bsStoreApi.pdb
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\AutoMapper.dll
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\Humanizer.dll
+D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\dotnetcampw2\final\backendApp\bsStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

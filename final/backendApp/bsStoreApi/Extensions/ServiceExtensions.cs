@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Concrete;
@@ -66,7 +67,7 @@ namespace bsStoreApi.Extensions
 
             services.AddAuthentication(opt =>
             {
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationSchema;
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             });
         }
     
