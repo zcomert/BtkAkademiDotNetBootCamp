@@ -15,5 +15,4 @@ namespace Entities.Dtos
         public int CategoryId { get; set; }
     }
 
-    // BookDtoForInsertion -> Book
 }
