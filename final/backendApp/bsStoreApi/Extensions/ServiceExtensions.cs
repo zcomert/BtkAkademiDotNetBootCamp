@@ -57,6 +57,19 @@ namespace bsStoreApi.Extensions
             }).AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
         }
+    
+        public static void ConfigureJwt(this IServiceCollection services, 
+            IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = jwtSettings["secretKey"];
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationSchema;
+            });
+        }
+    
     }
 }
 
