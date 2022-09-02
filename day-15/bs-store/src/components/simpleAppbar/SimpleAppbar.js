@@ -40,18 +40,28 @@ const pages = [
     name: "Login",
     url: "/auth/login",
   },
+  {
+    id: 5,
+    name: "Cart",
+    url: "/Cart",
+  },
 ];
 
 const SimpleAppbar = () => {
+
   const navigate = useNavigate();
   const {cart} = useSelector(state => state.cart);
+  const {user} = useSelector(state => state.user);
+
+
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { isLogin, setIsLogin } = React.useContext(AppContext);
+  
 
   const handleLogout = () => {
     handleCloseUserMenu();
-    setIsLogin(false);
+    // setIsLogin(false);
   };
 
   const handleOpenNavMenu = (event) => {
@@ -72,6 +82,7 @@ const SimpleAppbar = () => {
 
   return (
     <header>
+     
       <AppBar position='static'>
         <Container maxWidth='xl'>
           <Toolbar disableGutters>
@@ -167,13 +178,13 @@ const SimpleAppbar = () => {
             <ShoppingBasketIcon />
 
             </Badge>
-            {isLogin && (
-              <Box sx={{ flexGrow: 0 }}>
+            {user.isLogin && (
+              <Box sx={{ flexGrow: 0, mx:3 }}>
                 <Tooltip title='Open settings'>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
-                      alt='Remy Sharp'
-                      src='/static/images/avatar/2.jpg'
+                      alt={`${user?.firstName} ${user?.lastName}`}
+                      src={`/authors/${user?.userId%21}.jpg`}
                     />
                   </IconButton>
                 </Tooltip>

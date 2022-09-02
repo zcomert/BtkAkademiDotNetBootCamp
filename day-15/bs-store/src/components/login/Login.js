@@ -6,7 +6,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useContext } from "react";
-import AppContext from "../../context/ContextApplication";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import HttpsIcon from "@mui/icons-material/Https";
 import { Stack } from "@mui/system";
@@ -14,9 +13,12 @@ import AuthenticationService from "../../services/authenticationService";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import {openSnackbar} from "../../store/actions/appActions";
+import {setUser} from "../../store/actions/userActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const authenticationService = new AuthenticationService();
   const {handleSubmit, handleChange, values} = useFormik({
     initialValues:{
@@ -41,9 +43,16 @@ export default function Login() {
         localStorage.setItem("lastName",resp.lastName);
         localStorage.setItem("accessToken",resp.accessToken);
         localStorage.setItem("isLogin",true);
-
-        window.location.replace("/");
-
+        
+        dispatch(setUser({
+          userId : resp.userId,
+          firstName: resp.firstName,
+          lastName : resp.lastName,
+          userName : resp.userName,
+          accessToken: resp.accessToken,
+          isLogin:true
+        }));
+        navigate("/");
       }
 
       if(result.status===401){
@@ -55,10 +64,6 @@ export default function Login() {
      
     }
   })
-
-  
-
-  
 
   return (
     <Container maxWidth='sm' sx={{ mt: 3 }}>

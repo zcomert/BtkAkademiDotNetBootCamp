@@ -12,7 +12,7 @@ const initialValue = {
   isLoaded,
 };
 
-export function appReducer(state = initialValue, { type, payload }) {
+export default function appReducer(state = initialValue, { type, payload }) {
   switch (type) {
     case SET_THEME:
       return {
