@@ -1,5 +1,6 @@
 ﻿using Entities.Dtos;
 using Entities.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using System;
@@ -12,6 +13,7 @@ namespace bsStoreApi.Presentation.Controllers
 {
     [ApiController]
     [Route("api/books")]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
@@ -20,7 +22,7 @@ namespace bsStoreApi.Presentation.Controllers
         {
             _bookService = bookService;
         }
-
+        
         [HttpGet]
         public IActionResult GetAllBooks()
         {
@@ -35,6 +37,7 @@ namespace bsStoreApi.Presentation.Controllers
         }
 
         [HttpPost]
+        
         public IActionResult CreateOneBook([FromBody] BookDtoForInsertion book)
         {
             _bookService.CreateOneBook(book);
