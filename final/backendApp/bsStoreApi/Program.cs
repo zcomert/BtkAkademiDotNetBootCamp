@@ -19,7 +19,7 @@ builder.Services.RegisterToIoC();
 builder.Services.ConfigureCors();
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
-
+builder.Services.ConfigureJwt(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program)); // IoC : Register : Resolve : Dispose
 
 var app = builder.Build();
