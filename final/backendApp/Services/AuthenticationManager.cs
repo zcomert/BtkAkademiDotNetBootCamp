@@ -32,14 +32,18 @@ namespace Services
             _configuration = configuration;
         }
 
-        public Task<string> CreateToken()
+        public async Task<string> CreateToken()
         {
-            throw new NotImplementedException();
+            var signingCredentials = GetSigningCredentials();
+            var claims = await GetClaims();
+            var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+
+            return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         }
 
-        public Task<User> GetOneUser(string username)
+        public async Task<User> GetOneUser(string username)
         {
-            throw new NotImplementedException();
+           return await _userManager.FindByNameAsync(username);
         }
 
         public async Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration)
@@ -56,12 +60,16 @@ namespace Services
             return result;
         }
 
-        public Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
+        public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
         {
-            throw new NotImplementedException();
+            _user = await _userManager.FindByNameAsync(userForAuth.UserName);
+            var result = (_user != null &&
+                await _userManager.CheckPasswordAsync(_user,userForAuth.Password));
+            if (!result) { }
+            return result;
         }
 
-        private SigningCredentials GetSigninCredentials()
+        private SigningCredentials GetSigningCredentials()
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
             var key = Encoding.UTF8.GetBytes(jwtSettings["secretKey"]);
