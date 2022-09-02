@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IHlbVkXwW/yfAni+o7MUpngnWYBFbzt0kN6qB8gF272s9g+JKkA4OFIjg8s+IKmGPz1lZRNXor3cCqXWjI/dNA==",
+  "dgSpecHash": "mQIkBDqaHU/RoGfppcJegBVOaC7mN4VkLCJe2k5n8KOa5KhYzQysZ9Dxkv1eJ67rcfkLiVzxiAUEp5+xltEvFQ==",
   "success": true,
-  "projectFilePath": "E:\\dotnetcamp\\day-15\\backendApp\\bsStoreApi\\bsStoreApi.csproj",
+  "projectFilePath": "D:\\dotnetbootcamp\\day-15\\backendApp\\bsStoreApi\\bsStoreApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zafer\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\zafer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

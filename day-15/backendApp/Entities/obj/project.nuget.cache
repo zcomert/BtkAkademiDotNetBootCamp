@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o2bgdJWSM0VRiPSbPdz2gUjlGNZZLteH8ljDNZ1YjeYsNEIVWKqQEa5fksw3Z60qIC6KiorirHGfzQ10Kaz5qw==",
+  "dgSpecHash": "eF/wUOv2JYFv6gOfgkiq45IXn8vob3H1402bpZ/JIK2OB0hNhUtj4/gXOR+sRVqf8+IG9v0gTeyI5avTxiZMoA==",
   "success": true,
-  "projectFilePath": "E:\\dotnetcamp\\day-15\\backendApp\\Entities\\Entities.csproj",
+  "projectFilePath": "D:\\dotnetbootcamp\\day-15\\backendApp\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zafer\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\zafer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
