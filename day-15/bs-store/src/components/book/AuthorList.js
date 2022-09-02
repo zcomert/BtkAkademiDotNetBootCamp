@@ -11,7 +11,8 @@ import React from "react";
 export default function AuthorList({ bookAuthors }) {
   return (
     <List>
-      {bookAuthors.map((ba) => (
+
+      { bookAuthors && bookAuthors.map((ba) => (
         <>
           <ListItem>
             <ListItemAvatar>

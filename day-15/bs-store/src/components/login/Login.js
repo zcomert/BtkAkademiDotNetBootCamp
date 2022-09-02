@@ -25,15 +25,34 @@ export default function Login() {
     },
     onSubmit : async (values) => {
       
-      const {status,data} = await authenticationService.login(values);
-     
-      if(status===200){
+      const result = await authenticationService.login(values);
+      console.log("STATUS",result)
+      if(result.status===200){
         dispatch(openSnackbar({
           message : 'Login succeeded.',
           severity:'success'
+        }));
+
+        const resp = result.data;
+
+        localStorage.setItem("userId",resp.userId);
+        localStorage.setItem("userName",resp.userName);
+        localStorage.setItem("firstName",resp.firstName);
+        localStorage.setItem("lastName",resp.lastName);
+        localStorage.setItem("accessToken",resp.accessToken);
+        localStorage.setItem("isLogin",true);
+
+        window.location.replace("/");
+
+      }
+
+      if(result.status===401){
+        dispatch(openSnackbar({
+          message : 'Login failed.',
+          severity:'error'
         }))
       }
-      console.log("HEEE")
+     
     }
   })
 

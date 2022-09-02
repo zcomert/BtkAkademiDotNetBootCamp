@@ -7,8 +7,9 @@ class AuthenticationService {
 
   async login(login){
     const url = `${this.baseUrl}/login`;
-    const {status, data} = await axios.post(url,login);
-    return {status,data};
+    return await axios.post(url,login)
+    .then(resp => { return {status: resp.status, data : resp.data}})
+    .catch(err => { return {status : err.response.status}});
   }
 }
 

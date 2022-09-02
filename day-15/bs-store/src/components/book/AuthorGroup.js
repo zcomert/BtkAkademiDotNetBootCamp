@@ -4,7 +4,7 @@ import React from 'react'
 export default function AuthorGroup({bookAuthors}) {
   return (
     <AvatarGroup max={5}>
-      {bookAuthors.map((ba) => (
+      { bookAuthors &&  bookAuthors.map((ba) => (
          <Avatar alt={`${ba.author.firstName} ${ba.author.lastName}`} 
          src={`/authors/${ba.author.authorId%21}.jpg`} />
       ))}

@@ -13,7 +13,7 @@ namespace bsStoreApi.Presentation.Controllers
 {
     [ApiController]
     [Route("api/categories")]
-    [Authorize]
+
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -36,6 +36,7 @@ namespace bsStoreApi.Presentation.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult CreateOneCategory([FromBody] Category category)
         {
             return Ok(_categoryService.CreateOneCategory(category));
@@ -43,6 +44,7 @@ namespace bsStoreApi.Presentation.Controllers
 
 
         [HttpPut("{id:int}")]
+        [Authorize]
         public IActionResult UpdateOneCategory([FromRoute(Name = "id")] int id,
             [FromBody] Category category)
         {
@@ -50,6 +52,7 @@ namespace bsStoreApi.Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize]
         public IActionResult DeleteOneCategory([FromRoute(Name = "id")] int id)
         {
             _categoryService.DeleteOneCategory(id);
