@@ -6,6 +6,8 @@ using Repositories.Concrete;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace bsStoreApi.Extensions
 {
@@ -68,6 +70,19 @@ namespace bsStoreApi.Extensions
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["validIssuer"],
+                    ValidAudience = jwtSettings["validAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
             });
         }
     
