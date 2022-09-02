@@ -9,6 +9,7 @@ namespace bsStoreApi
         public MappingProfile()
         {
             CreateMap<BookDtoForInsertion, Book>();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }
